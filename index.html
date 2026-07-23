@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chika Privacy Policy</title>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #666666;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --card-bg: #1e293b;
+        --text: #f8fafc;
+        --text-muted: #94a3b8;
+        --accent: #38bdf8;
+        --border: #334155;
+      }
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 780px;
+      margin: 40px auto;
+      padding: 32px 24px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lang-picker-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 8px;
+    }
+    .lang-picker-box label {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .lang-select {
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin: 0 0 12px 0;
+      color: var(--text);
+    }
+    .meta-info {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .meta-info p {
+      margin: 4px 0;
+    }
+    h2 {
+      font-size: 1.25rem;
+      margin-top: 28px;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 6px;
+      display: inline-block;
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 20px;
+      color: var(--text);
+    }
+    p, li {
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-top">
+      <div class="brand">🌐 Chika</div>
+      <div class="lang-picker-box">
+        <label for="lang-select">Language:</label>
+        <select id="lang-select" class="lang-select" onchange="switchLanguage(this.value)">
+          <option value="en" selected>English</option>
+          <option value="zh-CN">简体中文</option>
+          <option value="zh-TW">繁體中文</option>
+          <option value="ja">日本語</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="id">Bahasa Indonesia</option>
+          <option value="th">ไทย</option>
+          <option value="hi">हिन्दी</option>
+          <option value="pt">Português</option>
+          <option value="ru">Русский</option>
+          <option value="it">Italiano</option>
+          <option value="ko">한국어</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- English (en) -->
+    <div id="section-en" class="lang-section">
+      <h1>Chika Privacy Policy</h1>
+      <div class="meta-info">
+        <p><strong>Effective Date:</strong> July 20, 2026</p>
+        <p><strong>Publisher:</strong> Meng Yang</p>
+        <p><strong>Contact:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>Chika is an offline-first Japanese learning app. Chika does not require a Chika account and does not include advertising, analytics, or cross-app tracking.</p>
+
+      <h3>Information stored on your device</h3>
+      <p>Vocabulary, review activity, chat history, examples, and preferences are stored in Chika's local SQLite database on your iPhone. API keys you choose to save are isolated by provider in the iOS Keychain and are not exposed to Chika's web interface. You can delete conversations, vocabulary, and a selected provider's saved API key from within Chika.</p>
+
+      <h3>AI features and international data transfer</h3>
+      <p>AI features are optional. Before the first AI request, Chika explains the data transfer and asks for your consent. When you choose AI chat or vocabulary enrichment, the text you submit and the selected provider's API key are sent directly from your device to its configured API address so that the provider can generate a response. Chika includes DeepSeek and OpenAI presets and permits a user-configured OpenAI-compatible HTTPS endpoint. Chika does not operate an intermediary server for these requests.</p>
+
+      <h3>Camera and photos</h3>
+      <p>Camera and photo-library access is optional and is used only when you choose image recognition. Chika performs OCR on the device. Chika does not send the selected image to an AI provider.</p>
+
+      <h3>Tracking, advertising, and sale of data</h3>
+      <p>Chika does not include advertising or analytics SDKs, does not track you across apps or websites, and does not sell personal data.</p>
+
+      <h3>Changes and contact</h3>
+      <p>Material changes will be reflected by updating this policy's effective date. Questions about Chika can be sent to <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a>.</p>
+    </div>
+
+    <!-- 简体中文 (zh-CN) -->
+    <div id="section-zh-CN" class="lang-section" style="display: none;">
+      <h1>Chika 隐私政策</h1>
+      <div class="meta-info">
+        <p><strong>生效日期:</strong> 2026年7月20日</p>
+        <p><strong>发布者:</strong> Meng Yang</p>
+        <p><strong>客服邮箱:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>Chika 是一款离线优先的日语学习应用，不要求注册 Chika 账号，也不包含广告、分析统计或跨应用追踪。</p>
+
+      <h3>本地存储的数据</h3>
+      <p>单词、复习记录、聊天记录、例句和偏好设置保存在 iPhone 本地 SQLite 数据库。用户主动保存的 API 密钥按服务商隔离存放于 iOS 钥匙串，不会暴露给 Chika 的网页界面。用户可以在应用内随时删除会话、单词和已保存的 API 密钥。</p>
+
+      <h3>AI 功能与数据传输</h3>
+      <p>AI 功能完全可选。首次请求前，Chika 会说明数据传输并征求同意。用户使用 AI 对话或单词补全时，提交的文字和当前服务商的 API 密钥会从设备直接发送到其配置的 API 地址以生成回答；Chika 不运营中转服务器。</p>
+    </div>
+
+    <!-- 繁體中文 (zh-TW) -->
+    <div id="section-zh-TW" class="lang-section" style="display: none;">
+      <h1>Chika 隱私權政策</h1>
+      <div class="meta-info">
+        <p><strong>生效日期:</strong> 2026年7月20日</p>
+        <p><strong>發布者:</strong> Meng Yang</p>
+        <p><strong>客服信箱:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>Chika 是一款離線優先的日語學習應用程式，不需要註冊 Chika 帳號，也不包含廣告、分析統計或跨應用追蹤。</p>
+    </div>
+
+    <!-- 日本語 (ja) -->
+    <div id="section-ja" class="lang-section" style="display: none;">
+      <h1>Chika プライバシーポリシー</h1>
+      <div class="meta-info">
+        <p><strong>発効日:</strong> 2026年7月20日</p>
+        <p><strong>発行者:</strong> Meng Yang</p>
+        <p><strong>お問い合わせ:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>Chika はオフライン優先の日本語学習アプリです。アカウント登録は不要で、広告、アクセス解析、アプリ間トラッキングは含まれません。</p>
+    </div>
+
+    <!-- Tiếng Việt (vi) -->
+    <div id="section-vi" class="lang-section" style="display: none;">
+      <h1>Chính sách Quyền Riêng tư Chika</h1>
+      <div class="meta-info">
+        <p><strong>Ngày có hiệu lực:</strong> Ngày 20 tháng 7 năm 2026</p>
+        <p><strong>Nhà xuất bản:</strong> Meng Yang</p>
+        <p><strong>Liên hệ:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>Chika là ứng dụng học tiếng Nhật ưu tiên ngoại tuyến. Chika không yêu cầu tài khoản và không chứa quảng cáo, phân tích hoặc theo dõi người dùng.</p>
+    </div>
+
+    <!-- Bahasa Indonesia (id) -->
+    <div id="section-id" class="lang-section" style="display: none;">
+      <h1>Kebijakan Privasi Chika</h1>
+      <div class="meta-info">
+        <p><strong>Tanggal Efektif:</strong> 20 Juli 2026</p>
+        <p><strong>Penerbit:</strong> Meng Yang</p>
+        <p><strong>Kontak:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>Chika adalah aplikasi belajar bahasa Jepang mengutamakan offline. Tidak memerlukan akun pengguna dan tidak mengandung iklan atau pelacakan antar aplikasi.</p>
+
+      <h3>Informasi yang Disimpan di Perangkat Anda</h3>
+      <p>Kosakata, riwayat latihan, dan pengaturan disimpan secara lokal di iPhone Anda. Kunci API disimpan secara aman di iOS Keychain.</p>
+
+      <h3>Fitur AI dan Transfer Data</h3>
+      <p>Penggunaan fitur AI bersifat opsional. Teks dan kunci API dikirim langsung dari perangkat Anda ke penyedia layanan AI tanpa melalui server perantara.</p>
+
+      <h3>Kamera dan Foto</h3>
+      <p>Pengenalan teks (OCR) diproses secara lokal di perangkat. Chika tidak mengirimkan gambar Anda ke penyedia AI.</p>
+    </div>
+
+    <!-- ไทย (th) -->
+    <div id="section-th" class="lang-section" style="display: none;">
+      <h1>นโยบายความเป็นส่วนตัว Chika</h1>
+      <div class="meta-info">
+        <p><strong>วันที่มีผลบังคับใช้:</strong> 20 กรกฎาคม 2026</p>
+        <p><strong>ผู้เผยแพร่:</strong> Meng Yang</p>
+        <p><strong>อีเมลติดต่อ:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>Chika เป็นแอปพลิเคชันเรียนภาษาญี่ปุ่นแบบออฟไลน์เป็นหลัก ไม่จำเป็นต้องลงทะเบียนบัญชี และไม่มีโฆษณา การวิเคราะห์ หรือการติดตามข้ามแอป</p>
+    </div>
+
+    <!-- हिन्दी (hi) -->
+    <div id="section-hi" class="lang-section" style="display: none;">
+      <h1>Chika गोपनीयता नीति</h1>
+      <div class="meta-info">
+        <p><strong>प्रभावी तिथि:</strong> 20 जुलाई 2026</p>
+        <p><strong>प्रकाशक:</strong> Meng Yang</p>
+        <p><strong>संपर्क ईमेल:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>Chika एक ऑफ़लाइन-प्रथम जापानी सीखने वाला ऐप है। इसमें खाता बनाने की आवश्यकता नहीं है और न ही इसमें कोई विज्ञापन या ट्रैकिंग शामिल है।</p>
+    </div>
+
+    <!-- Português (pt) -->
+    <div id="section-pt" class="lang-section" style="display: none;">
+      <h1>Política de Privacidade do Chika</h1>
+      <div class="meta-info">
+        <p><strong>Data de Vigência:</strong> 20 de Julho de 2026</p>
+        <p><strong>Publicador:</strong> Meng Yang</p>
+        <p><strong>Contato:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>O Chika é um aplicativo de aprendizado de japonês focado no uso offline. Não requer conta de usuário e não contém anúncios, análises ou rastreamento entre aplicativos.</p>
+
+      <h3>Informações Armazenadas no Seu Dispositivo</h3>
+      <p>O vocabulário, histórico de revisões e configurações são salvos localmente no seu iPhone. As chaves de API são isoladas com segurança no iOS Keychain.</p>
+
+      <h3>Recursos de IA e Transferência de Dados</h3>
+      <p>O uso dos recursos de IA é opcional. Os textos e chaves API são enviados diretamente do seu dispositivo para o provedor de IA selecionado, sem servidores intermediários.</p>
+
+      <h3>Câmera e Fotos</h3>
+      <p>O reconhecimento de texto (OCR) é processado localmente no dispositivo. O Chika não envia suas imagens para provedores de IA.</p>
+    </div>
+
+    <!-- Русский (ru) -->
+    <div id="section-ru" class="lang-section" style="display: none;">
+      <h1>Политика конфиденциальности Chika</h1>
+      <div class="meta-info">
+        <p><strong>Дата вступления в силу:</strong> 20 июля 2026 г.</p>
+        <p><strong>Издатель:</strong> Meng Yang</p>
+        <p><strong>Контактный email:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>Chika — это приложение для изучения японского языка с акцентом на офлайн-работу. Регистрация аккаунта не требуется, приложение не содержит рекламы, аналитики и межприложений трекинга.</p>
+
+      <h3>Информация, хранимая на вашем устройстве</h3>
+      <p>Словарный запас, история повторений и настройки хранятся локально на вашем iPhone. Ключи API надежно изолированы в iOS Keychain.</p>
+
+      <h3>ИИ-функции и передача данных</h3>
+      <p>Использование ИИ-функций является добровольным. Текст и API-ключи передаются напрямую с вашего устройства провайдеру ИИ без промежуточных серверов.</p>
+    </div>
+
+    <!-- Italiano (it) -->
+    <div id="section-it" class="lang-section" style="display: none;">
+      <h1>Informativa sulla Privacy di Chika</h1>
+      <div class="meta-info">
+        <p><strong>Data di Entrata in Vigore:</strong> 20 Luglio 2026</p>
+        <p><strong>Editore:</strong> Meng Yang</p>
+        <p><strong>Contatto:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>Chika è un'applicazione per l'apprendimento del giapponese orientata al funzionamento offline. Non richiede la creazione di un account e non contiene pubblicità o tracciamento tra app.</p>
+
+      <h3>Informazioni salvate sul dispositivo</h3>
+      <p>Vocabolario, cronologia dei ripassi e impostazioni sono salvati localmente sul tuo iPhone. Le chiavi API sono isolate in modo sicuro nel Keychain di iOS.</p>
+
+      <h3>Funzionalità IA</h3>
+      <p>L'uso delle funzionalità IA è opzionale. I testi e le chiavi API vengono inviati direttamente dal tuo dispositivo al fornitore IA selezionato senza server intermediari.</p>
+    </div>
+
+    <!-- 한국어 (ko) -->
+    <div id="section-ko" class="lang-section" style="display: none;">
+      <h1>Chika 개인정보 처리방침</h1>
+      <div class="meta-info">
+        <p><strong>시행일:</strong> 2026년 7월 20일</p>
+        <p><strong>발행자:</strong> Meng Yang</p>
+        <p><strong>문의 이메일:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>Chika는 오프라인 우선 일본어 학습 애플리케이션입니다. 회원가입이 필요 없으며, 광고, 분석 또는 앱 간 추적이 포함되어 있지 않습니다.</p>
+    </div>
+
+    <!-- Español (es) -->
+    <div id="section-es" class="lang-section" style="display: none;">
+      <h1>Política de Privacidad de Chika</h1>
+      <div class="meta-info">
+        <p><strong>Fecha de entrada en vigor:</strong> 20 de julio de 2026</p>
+        <p><strong>Editor:</strong> Meng Yang</p>
+        <p><strong>Contacto:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>Chika es una aplicación de aprendizaje de japonés enfocada en el uso sin conexión. No requiere cuenta de usuario y no contiene publicidad, analítica ni rastreo entre aplicaciones.</p>
+    </div>
+
+    <!-- Français (fr) -->
+    <div id="section-fr" class="lang-section" style="display: none;">
+      <h1>Politique de Confidentialité de Chika</h1>
+      <div class="meta-info">
+        <p><strong>Date d'effet :</strong> 20 juillet 2026</p>
+        <p><strong>Éditeur :</strong> Meng Yang</p>
+        <p><strong>Contact :</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>Chika est une application d'apprentissage du japonais axée sur le fonctionnement hors ligne. Aucune création de compte n'est requise.</p>
+    </div>
+
+    <!-- Deutsch (de) -->
+    <div id="section-de" class="lang-section" style="display: none;">
+      <h1>Chika Datenschutzerklärung</h1>
+      <div class="meta-info">
+        <p><strong>Inkrafttreten:</strong> 20. Juli 2026</p>
+        <p><strong>Herausgeber:</strong> Meng Yang</p>
+        <p><strong>Kontakt:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      </div>
+
+      <p>Chika ist eine Offline-First-App zum Japanischlernen. Es ist kein Benutzerkonto erforderlich.</p>
+    </div>
+  </div>
+
+  <script>
+    function switchLanguage(lang) {
+      const sections = document.querySelectorAll('.lang-section');
+      sections.forEach(sec => sec.style.display = 'none');
+      const target = document.getElementById('section-' + lang);
+      if (target) {
+        target.style.display = 'block';
+      }
+      document.documentElement.lang = lang;
+    }
+  </script>
+</body>
+</html>
