@@ -149,21 +149,21 @@
     <div id="section-en" class="lang-section">
       <h1>Chika Privacy Policy</h1>
       <div class="meta-info">
-        <p><strong>Effective Date:</strong> August 22, 2026</p>
+        <p><strong>Effective Date:</strong> September 6, 2026</p>
         <p><strong>Publisher:</strong> Meng Yang</p>
-        <p><strong>Contact:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>Contact:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>Chika is an offline-first Japanese learning app. Chika does not require a Chika account and does not operate advertising, first-party analytics, or cross-app tracking. AI providers may keep the operational metadata described below.</p>
 
       <h3>Information stored on your device</h3>
-      <p>Vocabulary, review activity, chat history, examples, and preferences are stored in Chika's local SQLite database on your iPhone. API keys you enter in Settings are transferred to the iOS Keychain through Chika's local app bridge; once saved, they are isolated by provider in Keychain, read only by native code when dispatching requests to the selected provider, and never returned to the web interface or logged.</p>
-      <p>Local database upgrade backups maintain up to 5 rolling snapshots within the app container. When you remove Chika from your device, all local app container data (including SQLite files and upgrade backups) is deleted. You can delete individual conversations and vocabulary items, delete the selected provider's key, or delete all Chika API keys in one action inside Settings. Because iOS may retain Keychain items after app removal, use “Delete all saved keys” before uninstalling if you do not want them retained.</p>
+      <p>Vocabulary, review activity, chat history, examples, and preferences are stored in Chika's local SQLite database on your iPhone. The Release app does not ask you for an AI provider API key and does not contain Chika's OpenRouter credential; that credential is stored only in Chika's Cloudflare Worker environment.</p>
+      <p>Local database upgrade backups maintain up to 5 rolling snapshots within the app container. When you remove Chika from your device, all local app container data (including SQLite files and upgrade backups) is deleted. You can delete individual conversations in the app. Vocabulary learning progress and local records are stored on-device and removed when you uninstall the app.</p>
 
       <h3>AI features and international data transfer</h3>
-      <p>AI features are optional. Before the first AI request, Chika explains the data transfer and asks for your consent. When you choose AI chat, the text you submit, conversation context, and the selected provider's API key are sent directly from your device to its configured API address so that the provider can generate a response. Release builds include DeepSeek, OpenAI, and OpenRouter destinations only. The OpenRouter preset connects directly to <code>https://openrouter.ai/api/v1</code>. Chika does not operate an intermediary server for these requests.</p>
-      <p>When Apple Translation is unavailable, Chika may send bundled Chinese meanings or example translations to the selected AI provider to produce a translation in the app's display language. This fallback is used only after you save that provider's API key and accept AI data transfer. OpenRouter may route requests to a downstream model provider; retention and training behavior can vary with your OpenRouter privacy settings, ZDR routing, and the downstream provider. Do not submit sensitive personal information.</p>
-      <p>The selected provider and its infrastructure may also receive and retain network and request metadata, including your IP address, approximate location derived from IP, selected model, token usage, request timing, and abuse-prevention or diagnostic records. The exact fields and retention period depend on the provider, any downstream provider, and your account settings.</p>
+      <p>AI features are optional. Before the first AI request, Chika explains the transfer and asks for your consent. Text and conversation context are sent to Chika's Cloudflare Worker at <code>https://chika-api.kakutiapps.workers.dev/api/v1</code>, which validates the request, applies usage limits, and forwards accepted content to OpenRouter and its selected downstream model provider.</p>
+      <p>Cloudflare processes the request and response. The Worker derives a secret-keyed HMAC identifier from the source IP, rotates it daily, and stores it in Durable Object rate-limit records for up to approx. 25 hours and App Attest challenge records for up to five minutes; it does not store the raw IP address. AI chats do not intentionally store prompt or response bodies in persistent application storage; optional feedback reports (no account required) are retained in Durable Object storage for up to 30 days and forwarded via email for troubleshooting. OpenRouter and its downstream provider receive the forwarded content and request metadata under the publisher's account and privacy settings. Do not submit sensitive personal information.</p>
+      <p>When Apple Translation is unavailable, Chika may use the same gateway to translate bundled Chinese meanings or example translations only after you accept AI data transfer. Protected Release requests use Apple App Attest. The Worker stores a per-installation key ID, public key, Apple receipt, assertion counter, and temporary challenge/quota records to verify the app instance and prevent replay or abuse. App Attest is not biometric identity and is not used for tracking.</p>
 
       <h3>Camera and photos</h3>
       <p>Camera and photo-library access is optional and is used only when you choose image recognition. Chika performs OCR on the device. Chika does not send the selected image to an AI provider.</p>
@@ -172,27 +172,27 @@
       <p>Chika does not include advertising or analytics SDKs, does not track you across apps or websites, and does not sell personal data.</p>
 
       <h3 id="support">Changes, support, and contact</h3>
-      <p>Material changes will be reflected by updating this policy's effective date. Questions, support requests, or reports about AI responses can be sent to <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a>.</p>
+      <p>Material changes will be reflected by updating this policy's effective date. Questions, support requests, or reports about AI responses can be sent to <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a>.</p>
     </div>
 
     <!-- 简体中文 (zh-CN) -->
     <div id="section-zh-CN" class="lang-section" style="display: none;">
       <h1>Chika 隐私政策</h1>
       <div class="meta-info">
-        <p><strong>生效日期:</strong> 2026年8月22日</p>
+        <p><strong>生效日期:</strong> 2026年9月6日</p>
         <p><strong>发布者:</strong> Meng Yang</p>
-        <p><strong>客服邮箱:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>客服邮箱:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>Chika 是一款离线优先的日语学习应用，不设 Chika 账号，也不运营广告、第一方分析统计或跨应用追踪。AI 服务商可能保留下文所述的运行元数据。</p>
 
       <h3>本地存储的数据</h3>
-      <p>单词、复习记录、聊天记录、例句和偏好设置保存在 iPhone 本地 SQLite 数据库。各 AI 服务商的 API 密钥在设置中输入后通过 Chika 的本地应用桥接写入 iOS 钥匙串并按服务商隔离保存，仅在原生层向选定服务商发送请求时读取，绝不会返回给网页界面或写入日志。</p>
-      <p>数据库升级前最多保留 5 个本地滚动快照。卸载应用时，包含数据库与升级快照在内的全部应用容器数据将被系统删除。用户可以在应用内逐项删除会话和单词，并可删除当前服务商的密钥或一次删除 Chika 保存的全部 API 密钥。由于 iOS 可能在应用卸载后保留钥匙串项目，如不希望保留，请在卸载前使用“删除全部已保存密钥”。</p>
+      <p>单词、复习记录、聊天记录、例句和偏好设置保存在 iPhone 本地 SQLite 数据库。发布版本不会要求用户填写 AI 服务商 API 密钥，也不包含 Chika 的 OpenRouter 密钥；该密钥仅保存在 Chika 的 Cloudflare Worker 环境中。</p>
+      <p>数据库升级前最多保留 5 个本地滚动快照。卸载应用时，包含数据库与升级快照在内的全部应用容器数据将被系统删除。用户可以在应用内逐项删除会话。词汇学习进度与本地记录保存在设备本地并在卸载应用时移除。</p>
 
       <h3>AI 功能与数据传输</h3>
-      <p>AI 功能完全可选。首次请求前，Chika 会说明数据传输并征求同意。用户使用 AI 对话时，提交的文字、对话上下文和当前服务商的 API 密钥会从设备直接发送到其配置的 API 地址以生成回答。Chika 内置 DeepSeek、OpenAI 与 OpenRouter；OpenRouter 预设直连其官方 API（<code>https://openrouter.ai/api/v1</code>）。Chika 不运营中转服务器。Apple 端侧翻译不可用时，只有在用户保存所选服务商密钥并同意 AI 数据传输后，Chika 才可能发送内置中文释义或例句译文以生成界面语言翻译。OpenRouter 可能将请求路由至具有不同保留政策的下游模型服务商，请勿提交敏感个人信息。</p>
-      <p>所选服务商及其基础设施还可能接收并保留网络和请求元数据，包括 IP 地址、由 IP 推断的大致位置、所选模型、令牌用量、请求时间，以及防滥用或诊断记录。具体字段和保留期限取决于服务商、下游服务商及账户设置。发布版本仅支持内置的 DeepSeek、OpenAI 和 OpenRouter 地址。</p>
+      <p>AI 功能完全可选。首次请求前，Chika 会说明数据传输并征求同意。提交的文字和相关对话上下文会发送到 Chika 的 Cloudflare Worker（<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>）；Worker 验证请求、执行用量限制，并把通过的内容转发给 OpenRouter 及其选择的下游模型服务商。</p>
+      <p>Cloudflare 会处理请求和响应。Worker 使用服务端密钥根据来源 IP 生成每日轮换的 HMAC 标识，并在 Durable Object 限流记录中保存至多约 25 小时、在 App Attest 挑战记录中保存至多 5 分钟；不会保存原始 IP 地址。当前源码不会主动把对话提示词或回答正文写入应用存储；可选的问题报告（无需账号）在 Durable Object 存储中最多保留 30 天并通过邮件转发以便排查问题。OpenRouter 和下游服务商会在发布者账号及其隐私设置下接收转发内容和请求元数据。Apple 端侧翻译不可用时，Chika 仅在取得 AI 数据传输同意后使用同一网关生成翻译。受保护的发布版请求使用 Apple App Attest；Worker 保存每次安装的密钥 ID、公钥、Apple 回执、断言计数器以及临时挑战和配额记录，以验证应用实例并防止重放或滥用。这不是生物识别身份，也不用于追踪。请勿提交敏感个人信息。</p>
 
       <h3>相机与照片</h3>
       <p>相机与照片访问完全可选，仅在进行文字识别时在设备端运行 Vision OCR。Chika 不会将照片发送给 AI 服务商。</p>
@@ -201,27 +201,27 @@
       <p>Chika 不包含广告或分析 SDK，不进行跨应用追踪，不出售个人数据。</p>
 
       <h3>支持与联系</h3>
-      <p>如有疑问或支持请求，请联系 <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a>。</p>
+      <p>如有疑问或支持请求，请联系 <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a>。</p>
     </div>
 
     <!-- 繁體中文 (zh-TW) -->
     <div id="section-zh-TW" class="lang-section" style="display: none;">
       <h1>Chika 隱私權政策</h1>
       <div class="meta-info">
-        <p><strong>生效日期:</strong> 2026年8月22日</p>
+        <p><strong>生效日期:</strong> 2026年9月6日</p>
         <p><strong>發布者:</strong> Meng Yang</p>
-        <p><strong>客服信箱:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>客服信箱:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>Chika 是一款離線優先的日語學習應用程式，不需要註冊 Chika 帳號，也不營運廣告、第一方分析統計或跨應用追蹤。AI 服務商可能保留下文所述的作業中繼資料。</p>
 
       <h3>本地儲存的資料</h3>
-      <p>單詞、複習記錄、聊天記錄、例句和設定保存在 iPhone 本機 SQLite 資料庫。各 AI 服務商的 API 金鑰在設定中輸入後透過 Chika 的本機應用程式橋接寫入 iOS 鑰匙串並按服務商隔離保存，僅在原生層向選定服務商發送請求時讀取，絕不會返回給網頁介面或寫入日誌。</p>
-      <p>資料庫升級備份在本地容器中最多保留 5 個滾動快照。解除安裝應用程式時將刪除全部容器資料。使用者可在應用程式內逐項刪除對話和單詞，也可刪除目前服務商的金鑰，或一次刪除 Chika 保存的全部 API 金鑰。若不希望 iOS 在解除安裝後保留鑰匙串項目，請先使用「刪除全部已保存金鑰」。</p>
+      <p>單詞、複習記錄、聊天記錄、例句和設定保存在 iPhone 本機 SQLite 資料庫。發佈版本不會要求使用者提供 AI 服務商 API 金鑰，也不包含 Chika 的 OpenRouter 金鑰；該金鑰僅保存在 Chika 的 Cloudflare Worker 環境中。</p>
+      <p>資料庫升級備份在本機容器中最多保留 5 個滾動快照。解除安裝應用程式時將刪除全部容器資料。使用者可在應用程式內逐項刪除對話。詞彙學習進度與本機記錄儲存於裝置本機，並於解除安裝應用程式時移除。</p>
 
       <h3>AI 功能與資料傳輸</h3>
-      <p>AI 功能完全可選。文字、對話內容與目前服務商的 API 金鑰會在取得同意後，從裝置直接傳送至發佈版本內建的 DeepSeek、OpenAI 或 OpenRouter。OpenRouter 預設直連官方 API，Chika 不經營中轉伺服器。Apple 裝置端翻譯無法使用時，經同意後方可透過所選 AI 服務商產生翻譯。請勿提交敏感個人資料。</p>
-      <p>所選服務商及其基礎設施還可能接收並保留網路與請求中繼資料，包括 IP 位址、由 IP 推斷的大致位置、所選模型、權杖用量、請求時間，以及防濫用或診斷記錄。實際欄位與保留期限取決於服務商、下游服務商及帳戶設定。</p>
+      <p>AI 功能完全可選。取得同意後，文字和相關對話內容會傳送到 Chika 的 Cloudflare Worker（<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>）；Worker 會驗證請求、執行用量限制，並將通過的內容轉送至 OpenRouter 及其選擇的下游模型服務商。</p>
+      <p>Cloudflare 會處理請求與回應。Worker 使用伺服器端密鑰根據來源 IP 產生每日輪換的 HMAC 識別碼，並在 Durable Object 限流記錄中保存最長約 25 小時、在 App Attest 挑戰記錄中保存最長 5 分鐘；不會保存原始 IP 位址。目前原始碼不會主動把對話提示詞或回答正文寫入應用程式儲存；可選的問題回報（無需帳號）於 Durable Object 儲存中最多保留 30 天並透過電子郵件轉發以利排查問題。OpenRouter 和下游服務商會在發布者帳號及其隱私設定下接收轉送內容和請求中繼資料。Apple 裝置端翻譯無法使用時，Chika 僅在取得 AI 資料傳輸同意後使用相同閘道產生翻譯。受保護的發佈版請求使用 Apple App Attest；Worker 儲存每次安裝的金鑰 ID、公鑰、Apple 收據、斷言計數器及臨時挑戰與配額記錄，以驗證應用程式實例並防止重放或濫用。這不是生物辨識身分，也不用於追蹤。請勿提交敏感個人資料。</p>
 
       <h3>相機與照片</h3>
       <p>相機與照片僅用於本機 OCR 文字辨識，圖片不會傳送給 AI 服務商。</p>
@@ -230,27 +230,27 @@
       <p>Chika 不包含廣告或分析 SDK，不進行跨應用追蹤，不出售個人資料。</p>
 
       <h3>支援與聯絡</h3>
-      <p>如有問題請聯絡 <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a>。</p>
+      <p>如有問題請聯絡 <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a>。</p>
     </div>
 
     <!-- 日本語 (ja) -->
     <div id="section-ja" class="lang-section" style="display: none;">
       <h1>Chika プライバシーポリシー</h1>
       <div class="meta-info">
-        <p><strong>発効日:</strong> 2026年8月22日</p>
+        <p><strong>発効日:</strong> 2026年9月6日</p>
         <p><strong>発行者:</strong> Meng Yang</p>
-        <p><strong>お問い合わせ:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>お問い合わせ:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>Chika はオフライン優先の日本語学習アプリです。アカウント登録は不要で、広告、Chika 独自のアクセス解析、アプリ間トラッキングは行いません。AI プロバイダーは、以下に記載する運用メタデータを保持する場合があります。</p>
 
       <h3>端末内に保存されるデータ</h3>
-      <p>単語、復習履歴、チャット履歴、例文、設定は iPhone のローカル SQLite データベースに保存されます。API キーは設定画面で入力後、Chika のローカルアプリブリッジを介して iOS Keychain にプロバイダーごとに分離保存され、選択中プロバイダーへのリクエスト送信時にネイティブ層でのみ読み取られます。Web インターフェースへ返されたりログに出力されたりすることはありません。</p>
-      <p>データベースのアップグレードバックアップはローカルコンテナ内に最大5世代保持されます。アプリを削除するとコンテナ内の全データが消去されます。個別の会話や単語、選択中プロバイダーのキーを削除できるほか、Chika が保存したすべての API キーを設定画面から一括削除できます。Keychain 項目を残したくない場合は、アンインストール前に「保存済みキーをすべて削除」を使用してください。</p>
+      <p>単語、復習履歴、チャット履歴、例文、設定は iPhone のローカル SQLite データベースに保存されます。Release 版は AI プロバイダーの API キー入力を求めず、Chika の OpenRouter キーも含みません。このキーは Chika の Cloudflare Worker 環境にのみ保存されます。</p>
+      <p>データベースのアップグレードバックアップはローカルコンテナ内に最大5世代保持されます。アプリを削除するとコンテナ内の全データが消去されます。個別の会話はアプリ内で削除できます。単語学習の進捗状況とローカル記録は端末内に保存され、アプリを削除した際に消去されます。</p>
 
       <h3>AI 機能とデータ送信</h3>
-      <p>AI 機能は任意です。リリースビルドは DeepSeek、OpenAI、OpenRouter の内蔵送信先にのみ端末から直接接続し、中継サーバーを運営しません。OpenRouter プリセットは公式 API（<code>https://openrouter.ai/api/v1</code>）へ直結します。Apple の端末内翻訳を利用できない場合も、API キーの保存と AI データ送信への同意がある場合に限り、収録済みの中国語語義または例文訳を選択中プロバイダーへ送信することがあります。機微な個人情報は送信しないでください。</p>
-      <p>選択したプロバイダーとそのインフラストラクチャは、IP アドレス、IP から推定されるおおよその位置情報、選択モデル、トークン使用量、リクエスト時刻、不正利用防止または診断記録などのネットワークおよびリクエストメタデータを受信・保持する場合があります。項目と保持期間は、プロバイダー、下流プロバイダー、アカウント設定によって異なります。</p>
+      <p>AI 機能は任意です。同意後、テキストと関連する会話コンテキストは Chika の Cloudflare Worker（<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>）へ送信されます。Worker はリクエストを検証し、利用制限を適用したうえで、承認した内容を OpenRouter と選択された下流モデル提供者へ転送します。</p>
+      <p>Cloudflare はリクエストとレスポンスを処理します。Worker はサーバー秘密鍵を使って送信元 IP から日ごとにローテーションする HMAC 識別子を生成し、Durable Object のレート制限記録に最長約25時間、App Attest のチャレンジ記録に最長5分間保存します。元の IP アドレスは保存しません。現在のソースコードは会話プロンプトや回答本文をアプリケーションストレージへ意図的に保存しません。任意の問題報告（アカウント不要）はトラブルシューティングのため Durable Object ストレージに最大30日間保持され、メールで転送されます。Apple の端末内翻訳を利用できない場合も、AI データ送信への同意後に同じゲートウェイを使用することがあります。保護対象の Release リクエストでは Apple App Attest を使用し、Worker はインストールごとの鍵 ID、公開鍵、Apple レシート、アサーションカウンター、一時的なチャレンジおよび割当記録を保存して、正規のアプリ実体を確認し再送や不正利用を防ぎます。これは生体認証による本人確認や追跡ではありません。機微な個人情報は送信しないでください。</p>
 
       <h3>カメラと写真</h3>
       <p>カメラおよび写真へのアクセスは OCR 文字認識時のみ端末上で実行され、画像が AI プロバイダーへ送信されることはありません。</p>
@@ -259,305 +259,306 @@
       <p>Chika は広告 SDK、分析 SDK、トラッキングドメインを含まず、個人データを販売しません。</p>
 
       <h3>サポートとお問い合わせ</h3>
-      <p>お問い合わせは <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a> までご連絡ください。</p>
+      <p>お問い合わせは <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a> までご連絡ください。</p>
     </div>
 
     <!-- Tiếng Việt (vi) -->
     <div id="section-vi" class="lang-section" style="display: none;">
       <h1>Chính sách Quyền Riêng tư Chika</h1>
       <div class="meta-info">
-        <p><strong>Ngày có hiệu lực:</strong> Ngày 22 tháng 8 năm 2026</p>
+        <p><strong>Ngày có hiệu lực:</strong> Ngày 6 tháng 9 năm 2026</p>
         <p><strong>Nhà xuất bản:</strong> Meng Yang</p>
-        <p><strong>Liên hệ:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>Liên hệ:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>Chika là ứng dụng học tiếng Nhật ưu tiên ngoại tuyến. Chika không yêu cầu tài khoản và không chứa quảng cáo, phân tích hoặc theo dõi người dùng.</p>
 
       <h3>Thông tin lưu trên thiết bị của bạn</h3>
-      <p>Từ vựng, lịch sử ôn tập, trò chuyện và cài đặt được lưu trong cơ sở dữ liệu SQLite cục bộ. Khóa API được nhập trong Cài đặt và chuyển vào iOS Keychain qua IPC an toàn; chỉ mã gốc mới đọc khóa khi gửi yêu cầu tới nhà cung cấp đã chọn và không bao giờ gửi lại giao diện web hoặc ghi log. Bản sao lưu nâng cấp giữ tối đa 5 bản sao trong bộ chứa cục bộ và sẽ bị xóa khi gỡ ứng dụng.</p>
-      <p>Bạn có thể xóa khóa của nhà cung cấp hiện tại hoặc xóa tất cả khóa API mà Chika đã lưu bằng một thao tác trong Cài đặt. Hãy xóa tất cả khóa trước khi gỡ ứng dụng nếu bạn không muốn iOS giữ lại các mục Keychain.</p>
+      <p>Từ vựng, lịch sử ôn tập, trò chuyện và cài đặt được lưu trong cơ sở dữ liệu SQLite cục bộ. Bản Release không yêu cầu khóa API AI của người dùng và không chứa thông tin đăng nhập OpenRouter của Chika; thông tin này chỉ được lưu trong môi trường Cloudflare Worker.</p>
+      <p>Bản sao lưu nâng cấp giữ tối đa 5 bản trong bộ chứa cục bộ và bị xóa khi gỡ ứng dụng. Bạn có thể xóa từng cuộc trò chuyện trong ứng dụng. Tiến độ học từ vựng và bản ghi cục bộ được lưu trên thiết bị và sẽ bị xóa khi bạn gỡ cài đặt ứng dụng.</p>
 
       <h3>Tính năng AI và truyền dữ liệu</h3>
-      <p>Tính năng AI là tùy chọn. Sau khi bạn đồng ý, văn bản, ngữ cảnh hội thoại và khóa API được gửi trực tiếp từ thiết bị đến một trong các đích tích hợp trong bản phát hành: DeepSeek, OpenAI hoặc OpenRouter (kết nối trực tiếp tới <code>https://openrouter.ai/api/v1</code>), không qua máy chủ trung gian. Không gửi thông tin cá nhân nhạy cảm.</p>
-      <p>Nhà cung cấp và hạ tầng của họ cũng có thể nhận và lưu địa chỉ IP, vị trí gần đúng suy ra từ IP, mô hình đã chọn, mức sử dụng token, thời gian yêu cầu và hồ sơ chống lạm dụng hoặc chẩn đoán. Các trường và thời gian lưu giữ phụ thuộc vào nhà cung cấp, nhà cung cấp hạ nguồn và cài đặt tài khoản.</p>
+      <p>Tính năng AI là tùy chọn. Sau khi bạn đồng ý, văn bản và ngữ cảnh hội thoại liên quan được gửi tới Cloudflare Worker của Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>). Worker xác thực yêu cầu, áp dụng giới hạn sử dụng rồi chuyển nội dung được chấp nhận tới OpenRouter và nhà cung cấp mô hình hạ nguồn.</p>
+      <p>Cloudflare xử lý yêu cầu và phản hồi. Worker tạo mã định danh HMAC dùng khóa bí mật từ IP nguồn, luân phiên hằng ngày, rồi lưu trong bản ghi giới hạn tốc độ của Durable Object tối đa khoảng 25 giờ, đồng thời trong bản ghi thử thách App Attest tối đa năm phút; địa chỉ IP gốc không được lưu. Trò chuyện AI không chủ ý lưu nội dung lời nhắc hoặc phản hồi; báo cáo sự cố tùy chọn (không cần tài khoản) được lưu trong bộ lưu trữ Durable Object tối đa 30 ngày và chuyển tiếp qua email để khắc phục sự cố. Yêu cầu Release được bảo vệ dùng Apple App Attest; Worker lưu ID khóa theo lần cài đặt, khóa công khai, biên nhận Apple, bộ đếm xác nhận và bản ghi thử thách/hạn ngạch tạm thời để xác minh ứng dụng và ngăn phát lại hoặc lạm dụng. Đây không phải danh tính sinh trắc học hay theo dõi. Không gửi thông tin cá nhân nhạy cảm.</p>
 
       <h3>Máy ảnh và Hình ảnh</h3>
       <p>Nhận dạng văn bản OCR chạy hoàn toàn trên thiết bị và không gửi hình ảnh tới nhà cung cấp AI.</p>
 
       <h3>Hỗ trợ và Liên hệ</h3>
-      <p>Mọi câu hỏi xin gửi về <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a>.</p>
+      <p>Mọi câu hỏi xin gửi về <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a>.</p>
     </div>
 
     <!-- Bahasa Indonesia (id) -->
     <div id="section-id" class="lang-section" style="display: none;">
       <h1>Kebijakan Privasi Chika</h1>
       <div class="meta-info">
-        <p><strong>Tanggal Efektif:</strong> 22 Agustus 2026</p>
+        <p><strong>Tanggal Efektif:</strong> 6 September 2026</p>
         <p><strong>Penerbit:</strong> Meng Yang</p>
-        <p><strong>Kontak:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>Kontak:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>Chika adalah aplikasi belajar bahasa Jepang mengutamakan offline. Tidak memerlukan akun pengguna dan tidak mengandung iklan atau pelacakan antar aplikasi.</p>
 
       <h3>Informasi yang Disimpan di Perangkat Anda</h3>
-      <p>Kosakata, riwayat latihan, riwayat chat, dan pengaturan disimpan secara lokal di database SQLite iPhone Anda. Kunci API dimasukkan di Pengaturan dan ditransfer ke iOS Keychain melalui IPC aman, hanya dibaca oleh kode native saat mengirim permintaan ke penyedia yang dipilih dan tidak pernah dikembalikan ke antarmuka web. Cadangan pemutakhiran disimpan hingga 5 snapshot dan dihapus saat aplikasi dicopot.</p>
-      <p>Di Pengaturan, Anda dapat menghapus kunci penyedia saat ini atau semua kunci API yang disimpan Chika dalam satu tindakan. Hapus semua kunci sebelum mencopot aplikasi jika Anda tidak ingin iOS mempertahankan item Keychain.</p>
+      <p>Kosakata, riwayat latihan, riwayat chat, dan pengaturan disimpan secara lokal di database SQLite iPhone Anda. Versi Release tidak meminta kunci API AI pengguna dan tidak memuat kredensial OpenRouter Chika; kredensial tersebut hanya disimpan di lingkungan Cloudflare Worker.</p>
+      <p>Cadangan pemutakhiran disimpan hingga 5 snapshot dan dihapus saat aplikasi dicopot. Percakapan dapat dihapus satu per satu di aplikasi. Kemajuan belajar kosakata dan rekaman lokal disimpan di perangkat dan dihapus saat aplikasi dicopot.</p>
 
       <h3>Fitur AI dan Transfer Data</h3>
-      <p>Penggunaan fitur AI bersifat opsional. Teks dan kunci API dikirim langsung dari perangkat Anda ke tujuan bawaan rilis—DeepSeek, OpenAI, atau OpenRouter (langsung ke <code>https://openrouter.ai/api/v1</code>)—tanpa melalui server perantara Chika.</p>
-      <p>Penyedia dan infrastrukturnya juga dapat menerima dan menyimpan alamat IP, perkiraan lokasi dari IP, model yang dipilih, penggunaan token, waktu permintaan, serta catatan pencegahan penyalahgunaan atau diagnostik. Rincian dan masa simpan bergantung pada penyedia, penyedia hilir, dan pengaturan akun.</p>
+      <p>Fitur AI bersifat opsional. Setelah persetujuan, teks dan konteks percakapan terkait dikirim ke Cloudflare Worker Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>). Worker memvalidasi permintaan, menerapkan batas penggunaan, lalu meneruskan konten yang diterima ke OpenRouter dan penyedia model hilir.</p>
+      <p>Cloudflare memproses permintaan dan respons. Worker membuat pengenal HMAC berkunci rahasia dari IP sumber, merotasinya setiap hari, lalu menyimpannya dalam catatan pembatasan laju Durable Object hingga sekitar 25 jam serta catatan tantangan App Attest hingga lima menit; alamat IP mentah tidak disimpan. Obrolan AI tidak sengaja menyimpan isi prompt atau respons; laporan masalah opsional (tanpa perlu akun) disimpan di penyimpanan Durable Object hingga 30 hari dan diteruskan melalui email untuk pemecahan masalah. Permintaan Release yang dilindungi memakai Apple App Attest; Worker menyimpan ID kunci per instalasi, kunci publik, tanda terima Apple, penghitung assertion, serta catatan tantangan/kuota sementara untuk memverifikasi aplikasi dan mencegah replay atau penyalahgunaan. Ini bukan identitas biometrik atau pelacakan.</p>
 
       <h3>Kamera dan Foto</h3>
       <p>Pengenalan teks (OCR) diproses secara lokal di perangkat. Chika tidak mengirimkan gambar Anda ke penyedia AI.</p>
 
       <h3>Dukungan dan Kontak</h3>
-      <p>Pertanyaan dan dukungan dapat dikirim ke <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a>.</p>
+      <p>Pertanyaan dan dukungan dapat dikirim ke <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a>.</p>
     </div>
 
     <!-- ไทย (th) -->
     <div id="section-th" class="lang-section" style="display: none;">
       <h1>นโยบายความเป็นส่วนตัว Chika</h1>
       <div class="meta-info">
-        <p><strong>วันที่มีผลบังคับใช้:</strong> 22 สิงหาคม 2026</p>
+        <p><strong>วันที่มีผลบังคับใช้:</strong> 6 กันยายน 2026</p>
         <p><strong>ผู้เผยแพร่:</strong> Meng Yang</p>
-        <p><strong>อีเมลติดต่อ:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>อีเมลติดต่อ:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>Chika เป็นแอปพลิเคชันเรียนภาษาญี่ปุ่นแบบออฟไลน์เป็นหลัก ไม่จำเป็นต้องลงทะเบียนบัญชี และไม่มีโฆษณา การวิเคราะห์ หรือการติดตามข้ามแอป</p>
 
       <h3>ข้อมูลที่จัดเก็บในอุปกรณ์ของคุณ</h3>
-      <p>คำศัพท์, ประวัติการทบทวน, ประวัติการแชท และการตั้งค่าจะถูกจัดเก็บในฐานข้อมูล SQLite ภายในเครื่อง คีย์ API จะถูกส่งต่อไปยัง iOS Keychain ผ่าน IPC ที่ปลอดภัย และอ่านโดยโค้ดเนทีฟเท่านั้น ข้อมูลสำรองการอัปเกรดเก็บไว้สูงสุด 5 ชุดและจะถูกลบเมื่อถอนการติดตั้งแอป</p>
-      <p>ในการตั้งค่า คุณสามารถลบคีย์ของผู้ให้บริการปัจจุบัน หรือลบคีย์ API ทั้งหมดที่ Chika บันทึกไว้ได้ในครั้งเดียว หากไม่ต้องการให้ iOS เก็บรายการ Keychain ไว้ โปรดลบคีย์ทั้งหมดก่อนถอนการติดตั้ง</p>
+      <p>คำศัพท์ ประวัติการทบทวน ประวัติการแชท และการตั้งค่าจะถูกเก็บไว้ในฐานข้อมูล SQLite ภายในเครื่อง รุ่น Release ไม่ขอคีย์ API สำหรับ AI จากผู้ใช้และไม่มีข้อมูลรับรอง OpenRouter ของ Chika ซึ่งจัดเก็บไว้เฉพาะในสภาพแวดล้อม Cloudflare Worker</p>
+      <p>ข้อมูลสำรองการอัปเกรดเก็บไว้สูงสุด 5 ชุดและจะถูกลบเมื่อถอนการติดตั้งแอป คุณสามารถลบบทสนทนาทีละรายการในแอปได้ ความคืบหน้าในการเรียนรู้คำศัพท์และบันทึกในเครื่องจะจัดเก็บไว้ในอุปกรณ์และถูกลบออกเมื่อคุณถอนการติดตั้งแอป</p>
 
       <h3>ฟีเจอร์ AI และการส่งข้อมูล</h3>
-      <p>ฟีเจอร์ AI เป็นทางเลือก หลังจากได้รับความยินยอม ข้อความ บริบทการสนทนา และคีย์ API จะถูกส่งโดยตรงไปยังปลายทางที่รวมในรุ่นเผยแพร่ ได้แก่ DeepSeek, OpenAI หรือ OpenRouter โดยไม่ผ่านเซิร์ฟเวอร์ตัวกลางของ Chika</p>
-      <p>ผู้ให้บริการและโครงสร้างพื้นฐานอาจรับและเก็บที่อยู่ IP ตำแหน่งโดยประมาณจาก IP โมเดลที่เลือก ปริมาณโทเค็น เวลาในการร้องขอ และบันทึกป้องกันการใช้งานในทางที่ผิดหรือการวินิจฉัย รายละเอียดและระยะเวลาเก็บรักษาขึ้นอยู่กับผู้ให้บริการ ผู้ให้บริการปลายทาง และการตั้งค่าบัญชี</p>
+      <p>ฟีเจอร์ AI เป็นทางเลือก หลังจากได้รับความยินยอม ข้อความและบริบทการสนทนาที่เกี่ยวข้องจะถูกส่งไปยัง Cloudflare Worker ของ Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>) Worker จะตรวจสอบคำขอ ใช้ขีดจำกัดการใช้งาน และส่งต่อเนื้อหาที่ผ่านไปยัง OpenRouter และผู้ให้บริการโมเดลปลายทาง</p>
+      <p>Cloudflare ประมวลผลคำขอและการตอบกลับ Worker สร้างตัวระบุ HMAC ที่ใช้คีย์ลับจาก IP ต้นทาง หมุนเวียนทุกวัน และเก็บไว้ในบันทึกการจำกัดอัตราของ Durable Object สูงสุดประมาณ 25 ชั่วโมง และในบันทึก challenge ของ App Attest สูงสุดห้านาที โดยไม่เก็บที่อยู่ IP ต้นฉบับ การแชทด้วย AI ไม่ได้ตั้งใจบันทึกข้อความแจ้งหรือคำตอบ รายงานปัญหาเพิ่มเติม (ไม่ต้องมีบัญชี) จะถูกเก็บไว้ในที่เก็บข้อมูล Durable Object สูงสุด 30 วันและส่งต่อทางอีเมลเพื่อการแก้ไขปัญหา คำขอ Release ที่ได้รับการป้องกันใช้ Apple App Attest โดย Worker เก็บรหัสคีย์ต่อการติดตั้ง คีย์สาธารณะ ใบรับรอง Apple ตัวนับ assertion และบันทึก challenge/โควตาชั่วคราวเพื่อยืนยันแอปและป้องกันการเล่นซ้ำหรือการใช้งานในทางที่ผิด ทั้งนี้ไม่ใช่ข้อมูลชีวมิติหรือการติดตาม</p>
 
       <h3>กล้องและรูปภาพ</h3>
       <p>ระบบ OCR ทำงานบนอุปกรณ์และไม่ส่งรูปภาพไปยังผู้ให้บริการ AI</p>
 
       <h3>การสนับสนุนและการติดต่อ</h3>
-      <p>ติดต่อได้ที่ <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      <p>ติดต่อได้ที่ <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
     </div>
 
     <!-- हिन्दी (hi) -->
     <div id="section-hi" class="lang-section" style="display: none;">
       <h1>Chika गोपनीयता नीति</h1>
       <div class="meta-info">
-        <p><strong>प्रभावी तिथि:</strong> 22 अगस्त 2026</p>
+        <p><strong>प्रभावी तिथि:</strong> 6 सितंबर 2026</p>
         <p><strong>प्रकाशक:</strong> Meng Yang</p>
-        <p><strong>संपर्क ईमेल:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>संपर्क ईमेल:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>Chika एक ऑफ़लाइन-प्रथम जापानी सीखने वाला ऐप है। इसमें खाता बनाने की आवश्यकता नहीं है और न ही इसमें कोई विज्ञापन या ट्रैकिंग शामिल है।</p>
 
       <h3>डिवाइस पर संग्रहीत जानकारी</h3>
-      <p>शब्दावली, पुनरावृत्ति इतिहास और सेटिंग्स स्थानीय SQLite में संग्रहीत हैं। API कुंजियाँ iOS Keychain में सुरक्षित IPC के माध्यम से अलग रखी जाती हैं और केवल नेटिव कोड द्वारा पढ़ी जाती हैं। ऐप हटाने पर स्थानीय डेटा मिट जाता है।</p>
-      <p>सेटिंग्स में आप मौजूदा प्रदाता की कुंजी या Chika द्वारा सहेजी गई सभी API कुंजियाँ एक साथ हटा सकते हैं। यदि आप नहीं चाहते कि iOS Keychain आइटम बनाए रखे, तो ऐप हटाने से पहले सभी कुंजियाँ हटा दें।</p>
+      <p>शब्दावली, पुनरावृत्ति इतिहास और सेटिंग्स स्थानीय SQLite में संग्रहीत हैं। Release संस्करण उपयोगकर्ता से AI API कुंजी नहीं मांगता और इसमें Chika का OpenRouter क्रेडेंशियल शामिल नहीं है; वह केवल Cloudflare Worker वातावरण में रखा जाता है।</p>
+      <p>ऐप हटाने पर स्थानीय डेटा और अपग्रेड बैकअप मिट जाते हैं। बातचीत ऐप में अलग-अलग हटाई जा सकती है। शब्दावली सीखने की प्रगति और स्थानीय रिकॉर्ड डिवाइस पर संग्रहीत होते हैं और ऐप अनइंस्टॉल करने पर हटा दिए जाते हैं।</p>
 
       <h3>AI सुविधाएँ और डेटा स्थानांतरण</h3>
-      <p>AI सुविधाएँ वैकल्पिक हैं। सहमति के बाद टेक्स्ट और API कुंजी रिलीज़ में शामिल DeepSeek, OpenAI या OpenRouter को सीधे भेजे जाते हैं; Chika कोई मध्यस्थ सर्वर संचालित नहीं करता।</p>
-      <p>प्रदाता और उसका इन्फ्रास्ट्रक्चर IP पता, IP से अनुमानित सामान्य स्थान, चुना गया मॉडल, टोकन उपयोग, अनुरोध समय और दुरुपयोग-रोधी या निदान रिकॉर्ड भी प्राप्त और संग्रहीत कर सकते हैं। विवरण और अवधारण अवधि प्रदाता, डाउनस्ट्रीम प्रदाता और खाता सेटिंग्स पर निर्भर करती है।</p>
+      <p>AI सुविधाएँ वैकल्पिक हैं। सहमति के बाद टेक्स्ट और संबंधित बातचीत संदर्भ Chika के Cloudflare Worker (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>) को भेजे जाते हैं। Worker अनुरोध सत्यापित करता है, उपयोग सीमा लागू करता है और स्वीकृत सामग्री OpenRouter तथा डाउनस्ट्रीम मॉडल प्रदाता को भेजता है।</p>
+      <p>Cloudflare अनुरोध और उत्तर संसाधित करता है। Worker सर्वर की गुप्त कुंजी से स्रोत IP का HMAC पहचानकर्ता बनाता है, जिसे प्रतिदिन बदला जाता है, और उसे Durable Object के दर-सीमा रिकॉर्ड में लगभग 25 घंटे तक तथा App Attest challenge रिकॉर्ड में पांच मिनट तक रखता है; मूल IP पता संग्रहीत नहीं किया जाता। AI चैट संकेत या उत्तर का मुख्य पाठ जानबूझकर संग्रहीत नहीं करती; वैकल्पिक समस्या रिपोर्ट (खाता आवश्यक नहीं) 30 दिनों तक Durable Object में रखी जाती हैं और समस्या निवारण के लिए ईमेल द्वारा अग्रेषित की जाती हैं। सुरक्षित Release अनुरोध Apple App Attest का उपयोग करते हैं; Worker ऐप सत्यापित करने और replay या दुरुपयोग रोकने के लिए प्रति इंस्टॉलेशन key ID, public key, Apple receipt, assertion counter और अस्थायी challenge/quota रिकॉर्ड रखता है। यह बायोमेट्रिक पहचान या ट्रैकिंग नहीं है।</p>
 
       <h3>कैमरा और तस्वीरें</h3>
       <p>OCR डिवाइस पर स्थानीय रूप से चलता है; छवियां AI प्रदाता को नहीं भेजी जाती हैं।</p>
 
       <h3>समर्थन और संपर्क</h3>
-      <p>सवालों के लिए संपर्क करें: <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+      <p>सवालों के लिए संपर्क करें: <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
     </div>
 
     <!-- Português (pt) -->
     <div id="section-pt" class="lang-section" style="display: none;">
       <h1>Política de Privacidade do Chika</h1>
       <div class="meta-info">
-        <p><strong>Data de Vigência:</strong> 22 de Agosto de 2026</p>
+        <p><strong>Data de Vigência:</strong> 6 de Setembro de 2026</p>
         <p><strong>Publicador:</strong> Meng Yang</p>
-        <p><strong>Contato:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>Contato:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>O Chika é um aplicativo de aprendizado de japonês focado no uso offline. Não requer conta de usuário e não contém anúncios, análises ou rastreamento entre aplicativos.</p>
 
       <h3>Informações Armazenadas no Seu Dispositivo</h3>
-      <p>Vocabulário, histórico de revisões, conversas e configurações são salvos localmente no SQLite. As chaves de API são transferidas via IPC seguro para o iOS Keychain e lidas apenas por código nativo. Backups de atualização retêm até 5 snapshots no container local e são apagados na desinstalação.</p>
-      <p>Nos Ajustes, você pode apagar a chave do provedor atual ou todas as chaves de API salvas pelo Chika em uma única ação. Apague todas as chaves antes de desinstalar se não quiser que o iOS retenha itens do Keychain.</p>
+      <p>Vocabulário, histórico de revisões, conversas e configurações são salvos localmente no SQLite. A versão Release não solicita uma chave API de IA do usuário nem contém a credencial OpenRouter do Chika; ela fica somente no ambiente do Cloudflare Worker.</p>
+      <p>Backups de atualização retêm até 5 snapshots e são apagados na desinstalação. Você pode excluir conversas individuais no app. O progresso de aprendizado e os registros locais ficam no dispositivo e são excluídos na desinstalação.</p>
 
       <h3>Recursos de IA e Transferência de Dados</h3>
-      <p>O uso de IA é opcional. Textos e chaves API são enviados diretamente do iPhone para um destino incluído na versão de lançamento: DeepSeek, OpenAI ou OpenRouter (direto para <code>https://openrouter.ai/api/v1</code>), sem servidor intermediário do Chika.</p>
-      <p>O provedor e sua infraestrutura também podem receber e reter endereço IP, localização aproximada derivada do IP, modelo selecionado, uso de tokens, horário das solicitações e registros de prevenção de abuso ou diagnóstico. Os detalhes e a retenção dependem do provedor, provedores subsequentes e configurações da conta.</p>
+      <p>O uso de IA é opcional. Após o consentimento, textos e o contexto relevante da conversa são enviados ao Cloudflare Worker do Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>). O Worker valida a solicitação, aplica limites de uso e encaminha o conteúdo aceito ao OpenRouter e ao provedor de modelo subsequente.</p>
+      <p>A Cloudflare processa a solicitação e a resposta. O Worker deriva do IP de origem um identificador HMAC com chave secreta, rotacionado diariamente, e o mantém em registros de limite de taxa do Durable Object por até aprox. 25 horas e em registros de desafio do App Attest por até cinco minutos; o endereço IP original não é armazenado. Chats de IA não armazenam intencionalmente o corpo de prompts ou respostas; relatos de problemas opcionais (sem necessidade de conta) são mantidos no armazenamento Durable Object por até 30 dias e encaminhados por e-mail para resolução de problemas. Solicitações Release protegidas usam o Apple App Attest; o Worker armazena ID de chave por instalação, chave pública, recibo Apple, contador de asserções e registros temporários de desafio/cota para verificar o app e impedir repetição ou abuso. Isso não é identidade biométrica nem rastreamento.</p>
 
       <h3>Câmera e Fotos</h3>
       <p>O OCR de texto é processado localmente no dispositivo. O Chika não envia imagens para provedores de IA.</p>
 
       <h3>Suporte e Contato</h3>
-      <p>Dúvidas ou suporte: <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a>.</p>
+      <p>Dúvidas ou suporte: <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a>.</p>
     </div>
 
     <!-- Русский (ru) -->
     <div id="section-ru" class="lang-section" style="display: none;">
       <h1>Политика конфиденциальности Chika</h1>
       <div class="meta-info">
-        <p><strong>Дата вступления в силу:</strong> 22 августа 2026 г.</p>
+        <p><strong>Дата вступления в силу:</strong> 6 сентября 2026 г.</p>
         <p><strong>Издатель:</strong> Meng Yang</p>
-        <p><strong>Контактный email:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>Контактный email:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>Chika — это приложение для изучения японского языка с акцентом на офлайн-работу. Регистрация аккаунта не требуется, приложение не содержит рекламы, аналитики и межприложений трекинга.</p>
 
       <h3>Информация, хранимая на вашем устройстве</h3>
-      <p>Словарный запас, история повторений и настройки хранятся локально в базе данных SQLite на iPhone. Ключи API изолированы в iOS Keychain через безопасный IPC и считываются только нативным кодом при отправке запросов. Резервные копии обновлений сохраняют до 5 снимков в контейнере приложения и удаляются при удалении приложения.</p>
-      <p>В настройках можно удалить ключ текущего провайдера или все API-ключи, сохранённые Chika, одним действием. Если вы не хотите, чтобы iOS сохраняла элементы Keychain, удалите все ключи до удаления приложения.</p>
+      <p>Словарный запас, история повторений и настройки хранятся локально в SQLite на iPhone. Release-версия не запрашивает у пользователя API-ключ ИИ и не содержит учётные данные OpenRouter Chika; они хранятся только в среде Cloudflare Worker.</p>
+      <p>Резервные копии обновлений сохраняют до 5 снимков и удаляются вместе с приложением. Беседы можно удалять по отдельности в приложении. Прогресс изучения словарного запаса и локальные записи хранятся на устройстве и удаляются при удалении приложения.</p>
 
       <h3>ИИ-функции и передача данных</h3>
-      <p>Использование ИИ добровольно. Текст и API-ключи передаются напрямую одному из встроенных в релиз сервисов — DeepSeek, OpenAI или OpenRouter — без промежуточных серверов Chika.</p>
-      <p>Провайдер и его инфраструктура также могут получать и хранить IP-адрес, примерное местоположение по IP, выбранную модель, расход токенов, время запросов и записи защиты от злоупотреблений или диагностики. Состав и срок хранения зависят от провайдера, нижестоящих провайдеров и настроек аккаунта.</p>
+      <p>Функции ИИ добровольны. После согласия текст и соответствующий контекст беседы отправляются в Cloudflare Worker Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>). Worker проверяет запрос, применяет лимиты и пересылает разрешённый контент OpenRouter и нижестоящему поставщику модели.</p>
+      <p>Cloudflare обрабатывает запрос и ответ. Worker с помощью серверного секрета создаёт из исходного IP ежедневно меняющийся HMAC-идентификатор и хранит его в записях ограничения частоты Durable Object до примерно 25 часов, а в записях challenge App Attest — до пяти минут; исходный IP-адрес не сохраняется. Чат ИИ намеренно не сохраняет тексты запросов или ответов в постоянном хранилище приложения; необязательные отчёты о проблемах (аккаунт не требуется) хранятся в хранилище Durable Object до 30 дней и пересылаются по электронной почте для устранения неполадок. Защищённые Release-запросы используют Apple App Attest; Worker хранит идентификатор ключа установки, открытый ключ, квитанцию Apple, счётчик assertions и временные записи challenge/квот для проверки приложения и предотвращения повторов или злоупотреблений. Это не биометрическая идентификация и не отслеживание.</p>
 
       <h3>Камера и Фотографии</h3>
       <p>Распознавание текста (OCR) выполняется локально на устройстве без передачи изображений поставщикам ИИ.</p>
 
       <h3>Поддержка и контакты</h3>
-      <p>Вопросы и обращения: <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a>.</p>
+      <p>Вопросы и обращения: <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a>.</p>
     </div>
 
     <!-- Italiano (it) -->
     <div id="section-it" class="lang-section" style="display: none;">
       <h1>Informativa sulla Privacy di Chika</h1>
       <div class="meta-info">
-        <p><strong>Data di Entrata in Vigore:</strong> 22 Agosto 2026</p>
+        <p><strong>Data di Entrata in Vigore:</strong> 6 Settembre 2026</p>
         <p><strong>Editore:</strong> Meng Yang</p>
-        <p><strong>Contatto:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>Contatto:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>Chika è un'applicazione per l'apprendimento del giapponese orientata al funzionamento offline. Non richiede la creazione di un account e non contiene pubblicità o tracciamento tra app.</p>
 
       <h3>Informazioni salvate sul dispositivo</h3>
-      <p>Vocabolario, cronologia e impostazioni sono memorizzati nel database SQLite locale di iPhone. Le chiavi API sono isolate nel Keychain di iOS tramite IPC sicuro e lette solo dal codice nativo. I backup di aggiornamento conservano fino a 5 snapshot ed eliminati con la disinstallazione.</p>
-      <p>Nelle impostazioni puoi eliminare la chiave del provider corrente oppure tutte le chiavi API salvate da Chika con una sola azione. Elimina tutte le chiavi prima di disinstallare se non vuoi che iOS conservi gli elementi del Keychain.</p>
+      <p>Vocabolario, cronologia e impostazioni sono memorizzati nel database SQLite locale. La versione Release non richiede una chiave API IA dell'utente e non contiene la credenziale OpenRouter di Chika, conservata solo nell'ambiente Cloudflare Worker.</p>
+      <p>I backup di aggiornamento conservano fino a 5 snapshot e vengono eliminati con l'app. Le conversazioni possono essere eliminate singolarmente nell'app. I progressi nello studio del vocabolario e i registri locali sono conservati sul dispositivo e rimossi quando si disinstalla l'app.</p>
 
       <h3>Funzionalità IA</h3>
-      <p>L'uso di IA è opzionale. Testi e chiavi API vengono inviati direttamente dal dispositivo a una destinazione inclusa nella release: DeepSeek, OpenAI o OpenRouter (direttamente a <code>https://openrouter.ai/api/v1</code>), senza server intermediario.</p>
-      <p>Il provider e la sua infrastruttura possono inoltre ricevere e conservare indirizzo IP, posizione approssimativa derivata dall'IP, modello selezionato, utilizzo dei token, orari delle richieste e registri antiabuso o diagnostici. Dettagli e conservazione dipendono dal provider, dai provider a valle e dalle impostazioni dell'account.</p>
+      <p>L'uso dell'IA è opzionale. Dopo il consenso, testi e contesto pertinente della conversazione vengono inviati al Cloudflare Worker di Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>). Il Worker convalida la richiesta, applica limiti d'uso e inoltra il contenuto accettato a OpenRouter e al provider del modello a valle.</p>
+      <p>Cloudflare elabora richiesta e risposta. Il Worker ricava dall'IP di origine un identificatore HMAC con chiave segreta, ruotato ogni giorno, e lo conserva nei registri di limitazione Durable Object fino a circa 25 ore e nei registri di challenge App Attest fino a cinque minuti; l'indirizzo IP originale non viene memorizzato. Le chat IA non salvano intenzionalmente il contenuto di prompt o risposte; le segnalazioni facoltative di problemi (nessun account richiesto) vengono conservate nello storage Durable Object fino a 30 giorni e inoltrate via email per la risoluzione dei problemi. Le richieste Release protette usano Apple App Attest; il Worker conserva ID chiave per installazione, chiave pubblica, ricevuta Apple, contatore delle asserzioni e registri temporanei di challenge/quota per verificare l'app e impedire replay o abusi. Non si tratta di identità biometrica né di tracciamento.</p>
 
       <h3>Fotocamera e Foto</h3>
       <p>Il riconoscimento del testo OCR avviene sul dispositivo e le immagini non vengono inviate ai provider IA.</p>
 
       <h3>Supporto e Contatti</h3>
-      <p>Per supporto o domande: <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a>.</p>
+      <p>Per supporto o domande: <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a>.</p>
     </div>
 
     <!-- 한국어 (ko) -->
     <div id="section-ko" class="lang-section" style="display: none;">
       <h1>Chika 개인정보 처리방침</h1>
       <div class="meta-info">
-        <p><strong>시행일:</strong> 2026년 8월 22일</p>
+        <p><strong>시행일:</strong> 2026년 9월 6일</p>
         <p><strong>발행자:</strong> Meng Yang</p>
-        <p><strong>문의 이메일:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>문의 이메일:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>Chika는 오프라인 우선 일본어 학습 애플리케이션입니다. 회원가입이 필요 없으며, 광고, 분석 또는 앱 간 추적이 포함되어 있지 않습니다.</p>
 
       <h3>기기에 저장되는 정보</h3>
-      <p>단어, 복습 기록, 대화 및 설정은 iPhone 로컬 SQLite에 저장됩니다. API 키는 설정에서 안전한 IPC를 통해 iOS Keychain에 격리 저장되며, 네이티브 코드에서만 읽힙니다. 업그레이드 백업은 최대 5개 스냅샷을 보관하며 앱 삭제 시 함께 삭제됩니다.</p>
-      <p>설정에서 현재 제공업체의 키를 삭제하거나 Chika가 저장한 모든 API 키를 한 번에 삭제할 수 있습니다. iOS가 Keychain 항목을 유지하지 않게 하려면 앱을 제거하기 전에 모든 키를 삭제하세요.</p>
+      <p>단어, 복습 기록, 대화 및 설정은 iPhone 로컬 SQLite에 저장됩니다. Release 버전은 사용자 AI API 키를 요구하지 않으며 Chika의 OpenRouter 자격 증명을 포함하지 않습니다. 해당 자격 증명은 Cloudflare Worker 환경에만 저장됩니다.</p>
+      <p>업그레이드 백업은 최대 5개 스냅샷을 보관하며 앱 삭제 시 함께 삭제됩니다. 앱에서 대화를 개별적으로 삭제할 수 있습니다. 단어 학습 진행 상황과 로컬 기록은 기기에 저장되며 앱 삭제 시 함께 제거됩니다.</p>
 
       <h3>AI 기능 및 데이터 전송</h3>
-      <p>AI 기능은 선택 사항입니다. 동의 후 텍스트 및 API 키가 릴리스에 포함된 DeepSeek, OpenAI 또는 OpenRouter(공식 API <code>https://openrouter.ai/api/v1</code> 직결)로 직접 전송되며 Chika 중계 서버를 거치지 않습니다.</p>
-      <p>제공업체와 해당 인프라는 IP 주소, IP에서 추정한 대략적 위치, 선택한 모델, 토큰 사용량, 요청 시각, 오용 방지 또는 진단 기록도 수신·보관할 수 있습니다. 구체적인 항목과 보관 기간은 제공업체, 하위 제공업체 및 계정 설정에 따라 달라집니다.</p>
+      <p>AI 기능은 선택 사항입니다. 동의 후 텍스트와 관련 대화 문맥이 Chika의 Cloudflare Worker(<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>)로 전송됩니다. Worker는 요청을 검증하고 사용량 제한을 적용한 뒤 허용된 콘텐츠를 OpenRouter와 하위 모델 제공업체로 전달합니다.</p>
+      <p>Cloudflare는 요청과 응답을 처리합니다. Worker는 서버 비밀 키로 원본 IP에서 매일 순환되는 HMAC 식별자를 생성하여 Durable Object 속도 제한 기록에 최대 약 25시간, App Attest challenge 기록에 최대 5분간 저장하며 원본 IP 주소 자체는 저장하지 않습니다. AI 채팅은 프롬프트나 응답 본문을 애플리케이션 영구 저장소에 의도적으로 저장하지 않습니다. 선택적인 문제 보고(계정 불필요)는 문제 해결을 위해 Durable Object 저장소에 최대 30일 동안 보관되며 이메일로 전달됩니다. 보호된 Release 요청은 Apple App Attest를 사용합니다. Worker는 앱을 검증하고 재전송 또는 악용을 방지하기 위해 설치별 키 ID, 공개 키, Apple 영수증, assertion 카운터와 임시 challenge/할당량 기록을 저장합니다. 이는 생체 신원 정보나 추적이 아닙니다.</p>
 
       <h3>카메라 및 사진</h3>
       <p>OCR 문자 인식은 기기 내에서 로컬로 실행되며 이미지는 AI 제공업체로 전송되지 않습니다.</p>
 
       <h3>지원 및 문의</h3>
-      <p>문의사항은 <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a>으로 연락해 주십시오.</p>
+      <p>문의사항은 <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a>으로 연락해 주십시오.</p>
     </div>
 
     <!-- Español (es) -->
     <div id="section-es" class="lang-section" style="display: none;">
       <h1>Política de Privacidad de Chika</h1>
       <div class="meta-info">
-        <p><strong>Fecha de entrada en vigor:</strong> 22 de agosto de 2026</p>
+        <p><strong>Fecha de entrada en vigor:</strong> 6 de septiembre de 2026</p>
         <p><strong>Editor:</strong> Meng Yang</p>
-        <p><strong>Contacto:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>Contacto:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>Chika es una aplicación de aprendizaje de japonés enfocada en el uso sin conexión. No requiere cuenta de usuario y no contiene publicidad, analítica ni rastreo entre aplicaciones.</p>
 
       <h3>Información almacenada en su dispositivo</h3>
-      <p>El vocabulario, historial de revisiones y ajustes se guardan en la base de datos local SQLite de su iPhone. Las claves API se transfieren mediante IPC seguro al iOS Keychain y son leídas únicamente por código nativo al enviar solicitudes al proveedor. Las copias de seguridad de actualización retienen hasta 5 instantáneas y se eliminan al desinstalar.</p>
-      <p>En Ajustes puede eliminar la clave del proveedor actual o todas las claves API guardadas por Chika en una sola acción. Elimine todas las claves antes de desinstalar si no quiere que iOS conserve elementos del Keychain.</p>
+      <p>El vocabulario, historial de revisiones y ajustes se guardan en SQLite local. La versión Release no solicita una clave API de IA del usuario ni contiene la credencial OpenRouter de Chika; esta se guarda únicamente en el entorno de Cloudflare Worker.</p>
+      <p>Las copias de seguridad conservan hasta 5 instantáneas y se eliminan con la app. Las conversaciones pueden borrarse individualmente en la app. El progreso de aprendizaje de vocabulario y los registros locales se guardan en el dispositivo y se eliminan al desinstalar la app.</p>
 
       <h3>Funciones de IA y transferencia de datos</h3>
-      <p>El uso de IA es opcional. Con su consentimiento, los textos y la clave API se envían directamente desde el dispositivo a un destino incluido en la versión: DeepSeek, OpenAI u OpenRouter (directo a <code>https://openrouter.ai/api/v1</code>), sin servidor intermediario de Chika.</p>
-      <p>El proveedor y su infraestructura también pueden recibir y conservar la dirección IP, ubicación aproximada derivada de la IP, modelo seleccionado, uso de tokens, hora de las solicitudes y registros contra abuso o de diagnóstico. Los datos y la retención dependen del proveedor, proveedores posteriores y ajustes de la cuenta.</p>
+      <p>El uso de IA es opcional. Tras el consentimiento, el texto y el contexto pertinente de la conversación se envían al Cloudflare Worker de Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>). El Worker valida la solicitud, aplica límites de uso y reenvía el contenido aceptado a OpenRouter y al proveedor de modelos posterior.</p>
+      <p>Cloudflare procesa la solicitud y la respuesta. El Worker deriva de la IP de origen un identificador HMAC con clave secreta que rota diariamente y lo conserva en registros de limitación de Durable Object hasta aprox. 25 horas y en registros de desafío de App Attest hasta cinco minutos; no conserva la dirección IP original. Los chats de IA no guardan intencionadamente el contenido de instrucciones o respuestas en el almacenamiento permanente; los informes de problemas opcionales (sin necesidad de cuenta) se conservan en el almacenamiento Durable Object hasta 30 días y se reenvían por correo electrónico para resolver problemas. Las solicitudes Release protegidas usan Apple App Attest; el Worker conserva el ID de clave por instalación, la clave pública, el recibo de Apple, el contador de aserciones y registros temporales de desafío/cuota para verificar la app e impedir repeticiones o abusos. No es identidad biométrica ni seguimiento.</p>
 
       <h3>Cámara y Fotos</h3>
       <p>El reconocimiento óptico de caracteres (OCR) se ejecuta en el dispositivo y las imágenes nunca se envían a proveedores de IA.</p>
 
       <h3>Soporte y Contacto</h3>
-      <p>Para preguntas o soporte: <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a>.</p>
+      <p>Para preguntas o soporte: <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a>.</p>
     </div>
 
     <!-- Français (fr) -->
     <div id="section-fr" class="lang-section" style="display: none;">
       <h1>Politique de Confidentialité de Chika</h1>
       <div class="meta-info">
-        <p><strong>Date d'effet :</strong> 22 août 2026</p>
+        <p><strong>Date d'effet :</strong> 6 septembre 2026</p>
         <p><strong>Éditeur :</strong> Meng Yang</p>
-        <p><strong>Contact :</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>Contact :</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>Chika est une application d'apprentissage du japonais axée sur le fonctionnement hors ligne. Aucune création de compte n'est requise et elle ne contient ni publicité ni suivi.</p>
 
       <h3>Informations stockées sur votre appareil</h3>
-      <p>Le vocabulaire, l'historique et les réglages sont stockés dans la base SQLite locale de votre iPhone. Les clés API sont transférées au Keychain iOS via IPC sécurisé et lues uniquement par le code natif. Les sauvegardes de mise à niveau conservent jusqu'à 5 instantanés et sont supprimées lors de la désinstallation de l'application.</p>
-      <p>Dans les réglages, vous pouvez supprimer la clé du fournisseur actuel ou toutes les clés API enregistrées par Chika en une seule action. Supprimez toutes les clés avant la désinstallation si vous ne souhaitez pas qu'iOS conserve des éléments du Keychain.</p>
+      <p>Le vocabulaire, l'historique et les réglages sont stockés dans la base SQLite locale. La version Release ne demande aucune clé API d'IA à l'utilisateur et ne contient pas l'identifiant OpenRouter de Chika, conservé uniquement dans l'environnement Cloudflare Worker.</p>
+      <p>Les sauvegardes conservent jusqu'à 5 instantanés et sont supprimées avec l'app. Les conversations peuvent être supprimées individuellement dans l'application. La progression de l'apprentissage du vocabulaire et les enregistrements locaux restent sur l'appareil et sont supprimés lors de la désinstallation de l'application.</p>
 
       <h3>Fonctions d'IA et transfert de données</h3>
-      <p>Les fonctions d'IA sont facultatives. Après votre consentement, les requêtes et clés API sont transmises directement à une destination incluse dans la version : DeepSeek, OpenAI ou OpenRouter (directement à <code>https://openrouter.ai/api/v1</code>), sans serveur intermédiaire Chika.</p>
-      <p>Le fournisseur et son infrastructure peuvent aussi recevoir et conserver l'adresse IP, la localisation approximative déduite de l'IP, le modèle choisi, l'usage des jetons, l'heure des requêtes et des journaux anti-abus ou de diagnostic. Les détails et la durée de conservation dépendent du fournisseur, des fournisseurs en aval et des réglages du compte.</p>
+      <p>Les fonctions d'IA sont facultatives. Après consentement, le texte et le contexte pertinent de la conversation sont envoyés au Cloudflare Worker de Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>). Le Worker valide la requête, applique des limites d'utilisation et transmet le contenu accepté à OpenRouter et au fournisseur de modèle en aval.</p>
+      <p>Cloudflare traite la requête et la réponse. Le Worker dérive de l'adresse IP source un identifiant HMAC à clé secrète, renouvelé chaque jour, et le conserve dans les enregistrements de limitation de débit du Durable Object pendant environ 25 heures au maximum, et dans les enregistrements de défi App Attest pendant cinq minutes au maximum ; l'adresse IP brute n'est pas stockée. Les chats IA ne stockent pas intentionnellement le contenu des invites ou réponses dans le stockage persistant ; les signalements facultatifs de problèmes (aucun compte requis) sont conservés dans le stockage Durable Object jusqu'à 30 jours et transférés par e-mail à des fins de dépannage. Les requêtes Release protégées utilisent Apple App Attest ; le Worker conserve l'ID de clé par installation, la clé publique, le reçu Apple, le compteur d'assertions et des enregistrements temporaires de défi/quota pour vérifier l'app et empêcher la répétition ou l'abus. Il ne s'agit ni d'identité biométrique ni de suivi.</p>
 
       <h3>Appareil photo et Photos</h3>
       <p>La reconnaissance de texte OCR s'effectue localement sur l'appareil et n'envoie aucune image aux fournisseurs d'IA.</p>
 
       <h3>Support et Contact</h3>
-      <p>Contactez <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a>.</p>
+      <p>Contactez <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a>.</p>
     </div>
 
     <!-- Deutsch (de) -->
     <div id="section-de" class="lang-section" style="display: none;">
       <h1>Chika Datenschutzerklärung</h1>
       <div class="meta-info">
-        <p><strong>Inkrafttreten:</strong> 22. August 2026</p>
+        <p><strong>Inkrafttreten:</strong> 6. September 2026</p>
         <p><strong>Herausgeber:</strong> Meng Yang</p>
-        <p><strong>Kontakt:</strong> <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a></p>
+        <p><strong>Kontakt:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
 
       <p>Chika ist eine Offline-First-App zum Japanischlernen. Es ist kein Benutzerkonto erforderlich und es gibt weder Werbung noch Tracking.</p>
 
       <h3>Auf Ihrem Gerät gespeicherte Informationen</h3>
-      <p>Wortschatz, Wiederholungsverlauf und Einstellungen werden in der lokalen SQLite-Datenbank Ihres iPhones gespeichert. API-Schlüssel werden über sicheres IPC in den iOS Keychain übertragen und nur von nativem Code gelesen. Upgrade-Backups speichern bis zu 5 Snapshots im App-Container und werden beim Löschen der App entfernt.</p>
-      <p>In den Einstellungen können Sie den Schlüssel des aktuellen Anbieters oder alle von Chika gespeicherten API-Schlüssel in einem Schritt löschen. Löschen Sie vor der Deinstallation alle Schlüssel, wenn iOS keine Keychain-Einträge behalten soll.</p>
+      <p>Wortschatz, Wiederholungsverlauf und Einstellungen werden in der lokalen SQLite-Datenbank gespeichert. Die Release-Version verlangt keinen KI-API-Schlüssel vom Nutzer und enthält nicht Chikas OpenRouter-Zugangsdaten; diese liegen nur in der Cloudflare-Worker-Umgebung.</p>
+      <p>Upgrade-Backups speichern bis zu 5 Snapshots und werden mit der App entfernt. Unterhaltungen können einzeln in der App gelöscht werden. Der Lernfortschritt und lokale Aufzeichnungen verbleiben auf dem Gerät und werden bei Deinstallation der App entfernt.</p>
 
       <h3>KI-Funktionen und Datenübertragung</h3>
-      <p>KI-Funktionen sind optional. Nach Ihrer Einwilligung werden Texte und API-Schlüssel direkt an ein in der Release-Version enthaltenes Ziel übermittelt: DeepSeek, OpenAI oder OpenRouter (direkt an <code>https://openrouter.ai/api/v1</code>), ohne Vermittlungsserver von Chika.</p>
-      <p>Der Anbieter und seine Infrastruktur können außerdem IP-Adresse, aus der IP abgeleiteten ungefähren Standort, gewähltes Modell, Token-Nutzung, Anfragezeit sowie Missbrauchsschutz- oder Diagnosedaten empfangen und speichern. Umfang und Aufbewahrung hängen vom Anbieter, nachgelagerten Anbietern und Kontoeinstellungen ab.</p>
+      <p>KI-Funktionen sind optional. Nach Einwilligung werden Text und relevanter Gesprächskontext an Chikas Cloudflare Worker (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>) gesendet. Der Worker prüft die Anfrage, setzt Nutzungslimits durch und leitet zulässige Inhalte an OpenRouter und den nachgelagerten Modellanbieter weiter.</p>
+      <p>Cloudflare verarbeitet Anfrage und Antwort. Der Worker leitet mit einem serverseitigen Geheimnis aus der Quell-IP eine täglich wechselnde HMAC-Kennung ab und speichert sie bis zu etwa 25 Stunden in Durable-Object-Datensätzen zur Ratenbegrenzung sowie bis zu fünf Minuten in App-Attest-Challenge-Datensätzen; die ursprüngliche IP-Adresse wird nicht gespeichert. KI-Chats speichern Prompt- oder Antwortinhalte nicht absichtlich im persistenten Speicher; optionale Problemberichte (kein Konto erforderlich) werden zur Fehlerbehebung bis zu 30 Tage im Durable-Object-Speicher aufbewahrt und per E-Mail weitergeleitet. Geschützte Release-Anfragen verwenden Apple App Attest; der Worker speichert eine installationsbezogene Schlüssel-ID, den öffentlichen Schlüssel, den Apple-Beleg, den Assertion-Zähler sowie temporäre Challenge-/Kontingentdaten, um die App zu prüfen und Wiederholungen oder Missbrauch zu verhindern. Dies ist weder biometrische Identität noch Tracking.</p>
 
       <h3>Kamera und Fotos</h3>
       <p>Die OCR-Texterkennung wird lokal auf dem Gerät ausgeführt; Bilder werden nicht an KI-Anbieter übermittelt.</p>
 
       <h3>Support und Kontakt</h3>
-      <p>Bei Fragen: <a href="mailto:mengyang0529@gmail.com">mengyang0529@gmail.com</a>.</p>
+      <p>Bei Fragen: <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a>.</p>
     </div>
 
     <div id="third-party-notices">
       <h2>Third-Party Notices</h2>
-      <p>Chika's bundled vocabulary data includes JMdict (EDRDG, CC BY-SA 4.0), Open Anki JLPT Decks (Jamie Sinclair, MIT), Tanos / Jonathan Waller (CC BY), and attributed JLPT data from Bluskyo, mjuhanne, and Stephen Kraus. Derived lexical data covered by CC BY-SA remains available under the same license.</p>
+      <p>JMdict is the only third-party lexical dataset used in Chika's bundled vocabulary. Copyright in JMdict is held by James William Breen and the Electronic Dictionary Research and Development Group (EDRDG), and the data is available under CC BY-SA 4.0.</p>
+      <p>Chika selects high-frequency entries, normalizes Unicode text, merges duplicate forms and senses, and converts the result to its bundled data model. Chika-generated Chinese meanings and examples supplement the JMdict material. The JMdict-derived vocabulary data remains available under CC BY-SA 4.0; this ShareAlike notice does not apply to Chika's application code.</p>
       <ul>
         <li><a href="https://www.edrdg.org/edrdg/licence.html">JMdict / EDRDG licence</a></li>
-        <li><a href="https://github.com/jamsinclair/open-anki-jlpt-decks/blob/master/LICENSE">Open Anki JLPT Decks licence</a></li>
-        <li><a href="https://www.tanos.co.uk/jlpt/sharing/">Tanos attribution and sharing terms</a></li>
+        <li><a href="https://www.cloudflare.com/privacypolicy/">Cloudflare Privacy Policy</a></li>
+        <li><a href="https://openrouter.ai/privacy/">OpenRouter Privacy Policy</a></li>
       </ul>
       <p>Chika also incorporates open-source software components including React, React-Virtuoso, Tauri, Rusqlite, SQLite, Keyring, Reqwest, Tokio, Serde, and other libraries under MIT, Apache-2.0, and Public Domain terms.</p>
-      <p>DeepSeek, OpenAI, and OpenRouter are independent services and do not sponsor or endorse Chika.</p>
+      <p>Cloudflare, OpenRouter, DeepSeek, and OpenAI are independent services and do not sponsor or endorse Chika. Release AI requests use Cloudflare Workers and OpenRouter; direct provider integrations are development-only.</p>
     </div>
   </div>
 
