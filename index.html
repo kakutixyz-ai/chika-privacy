@@ -149,7 +149,7 @@
     <div id="section-en" class="lang-section">
       <h1>Chika Privacy Policy</h1>
       <div class="meta-info">
-        <p><strong>Effective Date:</strong> September 6, 2026</p>
+        <p><strong>Effective Date:</strong> September 9, 2026</p>
         <p><strong>Publisher:</strong> Meng Yang</p>
         <p><strong>Contact:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -164,6 +164,7 @@
       <p>AI features are optional. Before the first AI request, Chika explains the transfer and asks for your consent. Text and conversation context are sent to Chika's Cloudflare Worker at <code>https://chika-api.kakutiapps.workers.dev/api/v1</code>, which validates the request, applies usage limits, and forwards accepted content to OpenRouter and its selected downstream model provider.</p>
       <p>Cloudflare processes the request and response. The Worker derives a secret-keyed HMAC identifier from the source IP, rotates it daily, and stores it in Durable Object rate-limit records for up to approx. 25 hours and App Attest challenge records for up to five minutes; it does not store the raw IP address. AI chats do not intentionally store prompt or response bodies in persistent application storage; optional feedback reports (no account required) are retained in Durable Object storage for up to 30 days and forwarded via email for troubleshooting. OpenRouter and its downstream provider receive the forwarded content and request metadata under the publisher's account and privacy settings. Do not submit sensitive personal information.</p>
       <p>When Apple Translation is unavailable, Chika may use the same gateway to translate bundled Chinese meanings or example translations only after you accept AI data transfer. Protected Release requests use Apple App Attest. The Worker stores a per-installation key ID, public key, Apple receipt, assertion counter, and temporary challenge/quota records to verify the app instance and prevent replay or abuse. App Attest is not biometric identity and is not used for tracking.</p>
+      <p>The Worker retains aggregate daily usage records for up to 180 days. An App Attest key record is removed after 180 days without a successful protected request. These records do not contain prompt or response text.</p>
 
       <h3>Camera and photos</h3>
       <p>Camera and photo-library access is optional and is used only when you choose image recognition. Chika performs OCR on the device. Chika does not send the selected image to an AI provider.</p>
@@ -179,7 +180,7 @@
     <div id="section-zh-CN" class="lang-section" style="display: none;">
       <h1>Chika 隐私政策</h1>
       <div class="meta-info">
-        <p><strong>生效日期:</strong> 2026年9月6日</p>
+        <p><strong>生效日期:</strong> 2026年9月9日</p>
         <p><strong>发布者:</strong> Meng Yang</p>
         <p><strong>客服邮箱:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -193,6 +194,7 @@
       <h3>AI 功能与数据传输</h3>
       <p>AI 功能完全可选。首次请求前，Chika 会说明数据传输并征求同意。提交的文字和相关对话上下文会发送到 Chika 的 Cloudflare Worker（<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>）；Worker 验证请求、执行用量限制，并把通过的内容转发给 OpenRouter 及其选择的下游模型服务商。</p>
       <p>Cloudflare 会处理请求和响应。Worker 使用服务端密钥根据来源 IP 生成每日轮换的 HMAC 标识，并在 Durable Object 限流记录中保存至多约 25 小时、在 App Attest 挑战记录中保存至多 5 分钟；不会保存原始 IP 地址。当前源码不会主动把对话提示词或回答正文写入应用存储；可选的问题报告（无需账号）在 Durable Object 存储中最多保留 30 天并通过邮件转发以便排查问题。OpenRouter 和下游服务商会在发布者账号及其隐私设置下接收转发内容和请求元数据。Apple 端侧翻译不可用时，Chika 仅在取得 AI 数据传输同意后使用同一网关生成翻译。受保护的发布版请求使用 Apple App Attest；Worker 保存每次安装的密钥 ID、公钥、Apple 回执、断言计数器以及临时挑战和配额记录，以验证应用实例并防止重放或滥用。这不是生物识别身份，也不用于追踪。请勿提交敏感个人信息。</p>
+      <p>Worker 还会将每日汇总用量记录保存最多 180 天；若某个 App Attest 密钥连续 180 天没有成功的受保护请求，其记录将被删除。这些记录不包含提示词或回答正文。</p>
 
       <h3>相机与照片</h3>
       <p>相机与照片访问完全可选，仅在进行文字识别时在设备端运行 Vision OCR。Chika 不会将照片发送给 AI 服务商。</p>
@@ -208,7 +210,7 @@
     <div id="section-zh-TW" class="lang-section" style="display: none;">
       <h1>Chika 隱私權政策</h1>
       <div class="meta-info">
-        <p><strong>生效日期:</strong> 2026年9月6日</p>
+        <p><strong>生效日期:</strong> 2026年9月9日</p>
         <p><strong>發布者:</strong> Meng Yang</p>
         <p><strong>客服信箱:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -222,6 +224,7 @@
       <h3>AI 功能與資料傳輸</h3>
       <p>AI 功能完全可選。取得同意後，文字和相關對話內容會傳送到 Chika 的 Cloudflare Worker（<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>）；Worker 會驗證請求、執行用量限制，並將通過的內容轉送至 OpenRouter 及其選擇的下游模型服務商。</p>
       <p>Cloudflare 會處理請求與回應。Worker 使用伺服器端密鑰根據來源 IP 產生每日輪換的 HMAC 識別碼，並在 Durable Object 限流記錄中保存最長約 25 小時、在 App Attest 挑戰記錄中保存最長 5 分鐘；不會保存原始 IP 位址。目前原始碼不會主動把對話提示詞或回答正文寫入應用程式儲存；可選的問題回報（無需帳號）於 Durable Object 儲存中最多保留 30 天並透過電子郵件轉發以利排查問題。OpenRouter 和下游服務商會在發布者帳號及其隱私設定下接收轉送內容和請求中繼資料。Apple 裝置端翻譯無法使用時，Chika 僅在取得 AI 資料傳輸同意後使用相同閘道產生翻譯。受保護的發佈版請求使用 Apple App Attest；Worker 儲存每次安裝的金鑰 ID、公鑰、Apple 收據、斷言計數器及臨時挑戰與配額記錄，以驗證應用程式實例並防止重放或濫用。這不是生物辨識身分，也不用於追蹤。請勿提交敏感個人資料。</p>
+      <p>Worker 也會將每日彙總用量記錄保存最長 180 天；若某個 App Attest 金鑰連續 180 天沒有成功的受保護請求，其記錄將被刪除。這些記錄不包含提示詞或回應正文。</p>
 
       <h3>相機與照片</h3>
       <p>相機與照片僅用於本機 OCR 文字辨識，圖片不會傳送給 AI 服務商。</p>
@@ -237,7 +240,7 @@
     <div id="section-ja" class="lang-section" style="display: none;">
       <h1>Chika プライバシーポリシー</h1>
       <div class="meta-info">
-        <p><strong>発効日:</strong> 2026年9月6日</p>
+        <p><strong>発効日:</strong> 2026年9月9日</p>
         <p><strong>発行者:</strong> Meng Yang</p>
         <p><strong>お問い合わせ:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -251,6 +254,7 @@
       <h3>AI 機能とデータ送信</h3>
       <p>AI 機能は任意です。同意後、テキストと関連する会話コンテキストは Chika の Cloudflare Worker（<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>）へ送信されます。Worker はリクエストを検証し、利用制限を適用したうえで、承認した内容を OpenRouter と選択された下流モデル提供者へ転送します。</p>
       <p>Cloudflare はリクエストとレスポンスを処理します。Worker はサーバー秘密鍵を使って送信元 IP から日ごとにローテーションする HMAC 識別子を生成し、Durable Object のレート制限記録に最長約25時間、App Attest のチャレンジ記録に最長5分間保存します。元の IP アドレスは保存しません。現在のソースコードは会話プロンプトや回答本文をアプリケーションストレージへ意図的に保存しません。任意の問題報告（アカウント不要）はトラブルシューティングのため Durable Object ストレージに最大30日間保持され、メールで転送されます。Apple の端末内翻訳を利用できない場合も、AI データ送信への同意後に同じゲートウェイを使用することがあります。保護対象の Release リクエストでは Apple App Attest を使用し、Worker はインストールごとの鍵 ID、公開鍵、Apple レシート、アサーションカウンター、一時的なチャレンジおよび割当記録を保存して、正規のアプリ実体を確認し再送や不正利用を防ぎます。これは生体認証による本人確認や追跡ではありません。機微な個人情報は送信しないでください。</p>
+      <p>Worker は日次の集計利用記録を最大180日間保持します。App Attest の鍵記録は、保護されたリクエストが180日間成功しなかった場合に削除されます。これらの記録にはプロンプトや回答本文は含まれません。</p>
 
       <h3>カメラと写真</h3>
       <p>カメラおよび写真へのアクセスは OCR 文字認識時のみ端末上で実行され、画像が AI プロバイダーへ送信されることはありません。</p>
@@ -266,7 +270,7 @@
     <div id="section-vi" class="lang-section" style="display: none;">
       <h1>Chính sách Quyền Riêng tư Chika</h1>
       <div class="meta-info">
-        <p><strong>Ngày có hiệu lực:</strong> Ngày 6 tháng 9 năm 2026</p>
+        <p><strong>Ngày có hiệu lực:</strong> Ngày 9 tháng 9 năm 2026</p>
         <p><strong>Nhà xuất bản:</strong> Meng Yang</p>
         <p><strong>Liên hệ:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -280,6 +284,7 @@
       <h3>Tính năng AI và truyền dữ liệu</h3>
       <p>Tính năng AI là tùy chọn. Sau khi bạn đồng ý, văn bản và ngữ cảnh hội thoại liên quan được gửi tới Cloudflare Worker của Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>). Worker xác thực yêu cầu, áp dụng giới hạn sử dụng rồi chuyển nội dung được chấp nhận tới OpenRouter và nhà cung cấp mô hình hạ nguồn.</p>
       <p>Cloudflare xử lý yêu cầu và phản hồi. Worker tạo mã định danh HMAC dùng khóa bí mật từ IP nguồn, luân phiên hằng ngày, rồi lưu trong bản ghi giới hạn tốc độ của Durable Object tối đa khoảng 25 giờ, đồng thời trong bản ghi thử thách App Attest tối đa năm phút; địa chỉ IP gốc không được lưu. Trò chuyện AI không chủ ý lưu nội dung lời nhắc hoặc phản hồi; báo cáo sự cố tùy chọn (không cần tài khoản) được lưu trong bộ lưu trữ Durable Object tối đa 30 ngày và chuyển tiếp qua email để khắc phục sự cố. Yêu cầu Release được bảo vệ dùng Apple App Attest; Worker lưu ID khóa theo lần cài đặt, khóa công khai, biên nhận Apple, bộ đếm xác nhận và bản ghi thử thách/hạn ngạch tạm thời để xác minh ứng dụng và ngăn phát lại hoặc lạm dụng. Đây không phải danh tính sinh trắc học hay theo dõi. Không gửi thông tin cá nhân nhạy cảm.</p>
+      <p>Worker lưu bản ghi tổng hợp mức sử dụng hằng ngày tối đa 180 ngày. Bản ghi khóa App Attest sẽ bị xóa sau 180 ngày không có yêu cầu được bảo vệ nào thành công. Các bản ghi này không chứa nội dung lời nhắc hoặc phản hồi.</p>
 
       <h3>Máy ảnh và Hình ảnh</h3>
       <p>Nhận dạng văn bản OCR chạy hoàn toàn trên thiết bị và không gửi hình ảnh tới nhà cung cấp AI.</p>
@@ -292,7 +297,7 @@
     <div id="section-id" class="lang-section" style="display: none;">
       <h1>Kebijakan Privasi Chika</h1>
       <div class="meta-info">
-        <p><strong>Tanggal Efektif:</strong> 6 September 2026</p>
+        <p><strong>Tanggal Efektif:</strong> 9 September 2026</p>
         <p><strong>Penerbit:</strong> Meng Yang</p>
         <p><strong>Kontak:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -306,6 +311,7 @@
       <h3>Fitur AI dan Transfer Data</h3>
       <p>Fitur AI bersifat opsional. Setelah persetujuan, teks dan konteks percakapan terkait dikirim ke Cloudflare Worker Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>). Worker memvalidasi permintaan, menerapkan batas penggunaan, lalu meneruskan konten yang diterima ke OpenRouter dan penyedia model hilir.</p>
       <p>Cloudflare memproses permintaan dan respons. Worker membuat pengenal HMAC berkunci rahasia dari IP sumber, merotasinya setiap hari, lalu menyimpannya dalam catatan pembatasan laju Durable Object hingga sekitar 25 jam serta catatan tantangan App Attest hingga lima menit; alamat IP mentah tidak disimpan. Obrolan AI tidak sengaja menyimpan isi prompt atau respons; laporan masalah opsional (tanpa perlu akun) disimpan di penyimpanan Durable Object hingga 30 hari dan diteruskan melalui email untuk pemecahan masalah. Permintaan Release yang dilindungi memakai Apple App Attest; Worker menyimpan ID kunci per instalasi, kunci publik, tanda terima Apple, penghitung assertion, serta catatan tantangan/kuota sementara untuk memverifikasi aplikasi dan mencegah replay atau penyalahgunaan. Ini bukan identitas biometrik atau pelacakan.</p>
+      <p>Worker menyimpan catatan agregat penggunaan harian hingga 180 hari. Catatan kunci App Attest dihapus setelah 180 hari tanpa permintaan terlindungi yang berhasil. Catatan ini tidak memuat teks prompt atau respons.</p>
 
       <h3>Kamera dan Foto</h3>
       <p>Pengenalan teks (OCR) diproses secara lokal di perangkat. Chika tidak mengirimkan gambar Anda ke penyedia AI.</p>
@@ -318,7 +324,7 @@
     <div id="section-th" class="lang-section" style="display: none;">
       <h1>นโยบายความเป็นส่วนตัว Chika</h1>
       <div class="meta-info">
-        <p><strong>วันที่มีผลบังคับใช้:</strong> 6 กันยายน 2026</p>
+        <p><strong>วันที่มีผลบังคับใช้:</strong> 9 กันยายน 2026</p>
         <p><strong>ผู้เผยแพร่:</strong> Meng Yang</p>
         <p><strong>อีเมลติดต่อ:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -332,6 +338,7 @@
       <h3>ฟีเจอร์ AI และการส่งข้อมูล</h3>
       <p>ฟีเจอร์ AI เป็นทางเลือก หลังจากได้รับความยินยอม ข้อความและบริบทการสนทนาที่เกี่ยวข้องจะถูกส่งไปยัง Cloudflare Worker ของ Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>) Worker จะตรวจสอบคำขอ ใช้ขีดจำกัดการใช้งาน และส่งต่อเนื้อหาที่ผ่านไปยัง OpenRouter และผู้ให้บริการโมเดลปลายทาง</p>
       <p>Cloudflare ประมวลผลคำขอและการตอบกลับ Worker สร้างตัวระบุ HMAC ที่ใช้คีย์ลับจาก IP ต้นทาง หมุนเวียนทุกวัน และเก็บไว้ในบันทึกการจำกัดอัตราของ Durable Object สูงสุดประมาณ 25 ชั่วโมง และในบันทึก challenge ของ App Attest สูงสุดห้านาที โดยไม่เก็บที่อยู่ IP ต้นฉบับ การแชทด้วย AI ไม่ได้ตั้งใจบันทึกข้อความแจ้งหรือคำตอบ รายงานปัญหาเพิ่มเติม (ไม่ต้องมีบัญชี) จะถูกเก็บไว้ในที่เก็บข้อมูล Durable Object สูงสุด 30 วันและส่งต่อทางอีเมลเพื่อการแก้ไขปัญหา คำขอ Release ที่ได้รับการป้องกันใช้ Apple App Attest โดย Worker เก็บรหัสคีย์ต่อการติดตั้ง คีย์สาธารณะ ใบรับรอง Apple ตัวนับ assertion และบันทึก challenge/โควตาชั่วคราวเพื่อยืนยันแอปและป้องกันการเล่นซ้ำหรือการใช้งานในทางที่ผิด ทั้งนี้ไม่ใช่ข้อมูลชีวมิติหรือการติดตาม</p>
+      <p>Worker เก็บบันทึกการใช้งานรายวันแบบรวมไว้นานสูงสุด 180 วัน บันทึกคีย์ App Attest จะถูกลบหลังจากไม่มีคำขอที่ได้รับการป้องกันสำเร็จเป็นเวลา 180 วัน บันทึกเหล่านี้ไม่มีข้อความ prompt หรือคำตอบ</p>
 
       <h3>กล้องและรูปภาพ</h3>
       <p>ระบบ OCR ทำงานบนอุปกรณ์และไม่ส่งรูปภาพไปยังผู้ให้บริการ AI</p>
@@ -344,7 +351,7 @@
     <div id="section-hi" class="lang-section" style="display: none;">
       <h1>Chika गोपनीयता नीति</h1>
       <div class="meta-info">
-        <p><strong>प्रभावी तिथि:</strong> 6 सितंबर 2026</p>
+        <p><strong>प्रभावी तिथि:</strong> 9 सितंबर 2026</p>
         <p><strong>प्रकाशक:</strong> Meng Yang</p>
         <p><strong>संपर्क ईमेल:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -358,6 +365,7 @@
       <h3>AI सुविधाएँ और डेटा स्थानांतरण</h3>
       <p>AI सुविधाएँ वैकल्पिक हैं। सहमति के बाद टेक्स्ट और संबंधित बातचीत संदर्भ Chika के Cloudflare Worker (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>) को भेजे जाते हैं। Worker अनुरोध सत्यापित करता है, उपयोग सीमा लागू करता है और स्वीकृत सामग्री OpenRouter तथा डाउनस्ट्रीम मॉडल प्रदाता को भेजता है।</p>
       <p>Cloudflare अनुरोध और उत्तर संसाधित करता है। Worker सर्वर की गुप्त कुंजी से स्रोत IP का HMAC पहचानकर्ता बनाता है, जिसे प्रतिदिन बदला जाता है, और उसे Durable Object के दर-सीमा रिकॉर्ड में लगभग 25 घंटे तक तथा App Attest challenge रिकॉर्ड में पांच मिनट तक रखता है; मूल IP पता संग्रहीत नहीं किया जाता। AI चैट संकेत या उत्तर का मुख्य पाठ जानबूझकर संग्रहीत नहीं करती; वैकल्पिक समस्या रिपोर्ट (खाता आवश्यक नहीं) 30 दिनों तक Durable Object में रखी जाती हैं और समस्या निवारण के लिए ईमेल द्वारा अग्रेषित की जाती हैं। सुरक्षित Release अनुरोध Apple App Attest का उपयोग करते हैं; Worker ऐप सत्यापित करने और replay या दुरुपयोग रोकने के लिए प्रति इंस्टॉलेशन key ID, public key, Apple receipt, assertion counter और अस्थायी challenge/quota रिकॉर्ड रखता है। यह बायोमेट्रिक पहचान या ट्रैकिंग नहीं है।</p>
+      <p>Worker दैनिक समेकित उपयोग रिकॉर्ड को अधिकतम 180 दिनों तक रखता है। 180 दिनों तक कोई सफल सुरक्षित अनुरोध न होने पर App Attest key रिकॉर्ड हटा दिया जाता है। इन रिकॉर्ड में prompt या उत्तर का पाठ शामिल नहीं होता।</p>
 
       <h3>कैमरा और तस्वीरें</h3>
       <p>OCR डिवाइस पर स्थानीय रूप से चलता है; छवियां AI प्रदाता को नहीं भेजी जाती हैं।</p>
@@ -370,7 +378,7 @@
     <div id="section-pt" class="lang-section" style="display: none;">
       <h1>Política de Privacidade do Chika</h1>
       <div class="meta-info">
-        <p><strong>Data de Vigência:</strong> 6 de Setembro de 2026</p>
+        <p><strong>Data de Vigência:</strong> 9 de Setembro de 2026</p>
         <p><strong>Publicador:</strong> Meng Yang</p>
         <p><strong>Contato:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -384,6 +392,7 @@
       <h3>Recursos de IA e Transferência de Dados</h3>
       <p>O uso de IA é opcional. Após o consentimento, textos e o contexto relevante da conversa são enviados ao Cloudflare Worker do Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>). O Worker valida a solicitação, aplica limites de uso e encaminha o conteúdo aceito ao OpenRouter e ao provedor de modelo subsequente.</p>
       <p>A Cloudflare processa a solicitação e a resposta. O Worker deriva do IP de origem um identificador HMAC com chave secreta, rotacionado diariamente, e o mantém em registros de limite de taxa do Durable Object por até aprox. 25 horas e em registros de desafio do App Attest por até cinco minutos; o endereço IP original não é armazenado. Chats de IA não armazenam intencionalmente o corpo de prompts ou respostas; relatos de problemas opcionais (sem necessidade de conta) são mantidos no armazenamento Durable Object por até 30 dias e encaminhados por e-mail para resolução de problemas. Solicitações Release protegidas usam o Apple App Attest; o Worker armazena ID de chave por instalação, chave pública, recibo Apple, contador de asserções e registros temporários de desafio/cota para verificar o app e impedir repetição ou abuso. Isso não é identidade biométrica nem rastreamento.</p>
+      <p>O Worker mantém registros agregados de uso diário por até 180 dias. Um registro de chave do App Attest é removido após 180 dias sem uma solicitação protegida bem-sucedida. Esses registros não contêm o texto de prompts ou respostas.</p>
 
       <h3>Câmera e Fotos</h3>
       <p>O OCR de texto é processado localmente no dispositivo. O Chika não envia imagens para provedores de IA.</p>
@@ -396,7 +405,7 @@
     <div id="section-ru" class="lang-section" style="display: none;">
       <h1>Политика конфиденциальности Chika</h1>
       <div class="meta-info">
-        <p><strong>Дата вступления в силу:</strong> 6 сентября 2026 г.</p>
+        <p><strong>Дата вступления в силу:</strong> 9 сентября 2026 г.</p>
         <p><strong>Издатель:</strong> Meng Yang</p>
         <p><strong>Контактный email:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -410,6 +419,7 @@
       <h3>ИИ-функции и передача данных</h3>
       <p>Функции ИИ добровольны. После согласия текст и соответствующий контекст беседы отправляются в Cloudflare Worker Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>). Worker проверяет запрос, применяет лимиты и пересылает разрешённый контент OpenRouter и нижестоящему поставщику модели.</p>
       <p>Cloudflare обрабатывает запрос и ответ. Worker с помощью серверного секрета создаёт из исходного IP ежедневно меняющийся HMAC-идентификатор и хранит его в записях ограничения частоты Durable Object до примерно 25 часов, а в записях challenge App Attest — до пяти минут; исходный IP-адрес не сохраняется. Чат ИИ намеренно не сохраняет тексты запросов или ответов в постоянном хранилище приложения; необязательные отчёты о проблемах (аккаунт не требуется) хранятся в хранилище Durable Object до 30 дней и пересылаются по электронной почте для устранения неполадок. Защищённые Release-запросы используют Apple App Attest; Worker хранит идентификатор ключа установки, открытый ключ, квитанцию Apple, счётчик assertions и временные записи challenge/квот для проверки приложения и предотвращения повторов или злоупотреблений. Это не биометрическая идентификация и не отслеживание.</p>
+      <p>Worker хранит агрегированные суточные записи об использовании до 180 дней. Запись ключа App Attest удаляется после 180 дней без успешного защищённого запроса. Эти записи не содержат тексты запросов или ответов.</p>
 
       <h3>Камера и Фотографии</h3>
       <p>Распознавание текста (OCR) выполняется локально на устройстве без передачи изображений поставщикам ИИ.</p>
@@ -422,7 +432,7 @@
     <div id="section-it" class="lang-section" style="display: none;">
       <h1>Informativa sulla Privacy di Chika</h1>
       <div class="meta-info">
-        <p><strong>Data di Entrata in Vigore:</strong> 6 Settembre 2026</p>
+        <p><strong>Data di Entrata in Vigore:</strong> 9 Settembre 2026</p>
         <p><strong>Editore:</strong> Meng Yang</p>
         <p><strong>Contatto:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -436,6 +446,7 @@
       <h3>Funzionalità IA</h3>
       <p>L'uso dell'IA è opzionale. Dopo il consenso, testi e contesto pertinente della conversazione vengono inviati al Cloudflare Worker di Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>). Il Worker convalida la richiesta, applica limiti d'uso e inoltra il contenuto accettato a OpenRouter e al provider del modello a valle.</p>
       <p>Cloudflare elabora richiesta e risposta. Il Worker ricava dall'IP di origine un identificatore HMAC con chiave segreta, ruotato ogni giorno, e lo conserva nei registri di limitazione Durable Object fino a circa 25 ore e nei registri di challenge App Attest fino a cinque minuti; l'indirizzo IP originale non viene memorizzato. Le chat IA non salvano intenzionalmente il contenuto di prompt o risposte; le segnalazioni facoltative di problemi (nessun account richiesto) vengono conservate nello storage Durable Object fino a 30 giorni e inoltrate via email per la risoluzione dei problemi. Le richieste Release protette usano Apple App Attest; il Worker conserva ID chiave per installazione, chiave pubblica, ricevuta Apple, contatore delle asserzioni e registri temporanei di challenge/quota per verificare l'app e impedire replay o abusi. Non si tratta di identità biometrica né di tracciamento.</p>
+      <p>Il Worker conserva i dati aggregati sull'utilizzo giornaliero per un massimo di 180 giorni. Un record della chiave App Attest viene eliminato dopo 180 giorni senza una richiesta protetta riuscita. Questi record non contengono il testo di prompt o risposte.</p>
 
       <h3>Fotocamera e Foto</h3>
       <p>Il riconoscimento del testo OCR avviene sul dispositivo e le immagini non vengono inviate ai provider IA.</p>
@@ -448,7 +459,7 @@
     <div id="section-ko" class="lang-section" style="display: none;">
       <h1>Chika 개인정보 처리방침</h1>
       <div class="meta-info">
-        <p><strong>시행일:</strong> 2026년 9월 6일</p>
+        <p><strong>시행일:</strong> 2026년 9월 9일</p>
         <p><strong>발행자:</strong> Meng Yang</p>
         <p><strong>문의 이메일:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -462,6 +473,7 @@
       <h3>AI 기능 및 데이터 전송</h3>
       <p>AI 기능은 선택 사항입니다. 동의 후 텍스트와 관련 대화 문맥이 Chika의 Cloudflare Worker(<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>)로 전송됩니다. Worker는 요청을 검증하고 사용량 제한을 적용한 뒤 허용된 콘텐츠를 OpenRouter와 하위 모델 제공업체로 전달합니다.</p>
       <p>Cloudflare는 요청과 응답을 처리합니다. Worker는 서버 비밀 키로 원본 IP에서 매일 순환되는 HMAC 식별자를 생성하여 Durable Object 속도 제한 기록에 최대 약 25시간, App Attest challenge 기록에 최대 5분간 저장하며 원본 IP 주소 자체는 저장하지 않습니다. AI 채팅은 프롬프트나 응답 본문을 애플리케이션 영구 저장소에 의도적으로 저장하지 않습니다. 선택적인 문제 보고(계정 불필요)는 문제 해결을 위해 Durable Object 저장소에 최대 30일 동안 보관되며 이메일로 전달됩니다. 보호된 Release 요청은 Apple App Attest를 사용합니다. Worker는 앱을 검증하고 재전송 또는 악용을 방지하기 위해 설치별 키 ID, 공개 키, Apple 영수증, assertion 카운터와 임시 challenge/할당량 기록을 저장합니다. 이는 생체 신원 정보나 추적이 아닙니다.</p>
+      <p>Worker는 일일 집계 사용 기록을 최대 180일 동안 보관합니다. App Attest 키 기록은 성공한 보호 요청이 180일 동안 없으면 삭제됩니다. 이 기록에는 프롬프트나 응답 본문이 포함되지 않습니다.</p>
 
       <h3>카메라 및 사진</h3>
       <p>OCR 문자 인식은 기기 내에서 로컬로 실행되며 이미지는 AI 제공업체로 전송되지 않습니다.</p>
@@ -474,7 +486,7 @@
     <div id="section-es" class="lang-section" style="display: none;">
       <h1>Política de Privacidad de Chika</h1>
       <div class="meta-info">
-        <p><strong>Fecha de entrada en vigor:</strong> 6 de septiembre de 2026</p>
+        <p><strong>Fecha de entrada en vigor:</strong> 9 de septiembre de 2026</p>
         <p><strong>Editor:</strong> Meng Yang</p>
         <p><strong>Contacto:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -488,6 +500,7 @@
       <h3>Funciones de IA y transferencia de datos</h3>
       <p>El uso de IA es opcional. Tras el consentimiento, el texto y el contexto pertinente de la conversación se envían al Cloudflare Worker de Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>). El Worker valida la solicitud, aplica límites de uso y reenvía el contenido aceptado a OpenRouter y al proveedor de modelos posterior.</p>
       <p>Cloudflare procesa la solicitud y la respuesta. El Worker deriva de la IP de origen un identificador HMAC con clave secreta que rota diariamente y lo conserva en registros de limitación de Durable Object hasta aprox. 25 horas y en registros de desafío de App Attest hasta cinco minutos; no conserva la dirección IP original. Los chats de IA no guardan intencionadamente el contenido de instrucciones o respuestas en el almacenamiento permanente; los informes de problemas opcionales (sin necesidad de cuenta) se conservan en el almacenamiento Durable Object hasta 30 días y se reenvían por correo electrónico para resolver problemas. Las solicitudes Release protegidas usan Apple App Attest; el Worker conserva el ID de clave por instalación, la clave pública, el recibo de Apple, el contador de aserciones y registros temporales de desafío/cuota para verificar la app e impedir repeticiones o abusos. No es identidad biométrica ni seguimiento.</p>
+      <p>El Worker conserva los registros agregados de uso diario durante un máximo de 180 días. Un registro de clave de App Attest se elimina tras 180 días sin una solicitud protegida correcta. Estos registros no contienen el texto de las instrucciones ni de las respuestas.</p>
 
       <h3>Cámara y Fotos</h3>
       <p>El reconocimiento óptico de caracteres (OCR) se ejecuta en el dispositivo y las imágenes nunca se envían a proveedores de IA.</p>
@@ -500,7 +513,7 @@
     <div id="section-fr" class="lang-section" style="display: none;">
       <h1>Politique de Confidentialité de Chika</h1>
       <div class="meta-info">
-        <p><strong>Date d'effet :</strong> 6 septembre 2026</p>
+        <p><strong>Date d'effet :</strong> 9 septembre 2026</p>
         <p><strong>Éditeur :</strong> Meng Yang</p>
         <p><strong>Contact :</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -514,6 +527,7 @@
       <h3>Fonctions d'IA et transfert de données</h3>
       <p>Les fonctions d'IA sont facultatives. Après consentement, le texte et le contexte pertinent de la conversation sont envoyés au Cloudflare Worker de Chika (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>). Le Worker valide la requête, applique des limites d'utilisation et transmet le contenu accepté à OpenRouter et au fournisseur de modèle en aval.</p>
       <p>Cloudflare traite la requête et la réponse. Le Worker dérive de l'adresse IP source un identifiant HMAC à clé secrète, renouvelé chaque jour, et le conserve dans les enregistrements de limitation de débit du Durable Object pendant environ 25 heures au maximum, et dans les enregistrements de défi App Attest pendant cinq minutes au maximum ; l'adresse IP brute n'est pas stockée. Les chats IA ne stockent pas intentionnellement le contenu des invites ou réponses dans le stockage persistant ; les signalements facultatifs de problèmes (aucun compte requis) sont conservés dans le stockage Durable Object jusqu'à 30 jours et transférés par e-mail à des fins de dépannage. Les requêtes Release protégées utilisent Apple App Attest ; le Worker conserve l'ID de clé par installation, la clé publique, le reçu Apple, le compteur d'assertions et des enregistrements temporaires de défi/quota pour vérifier l'app et empêcher la répétition ou l'abus. Il ne s'agit ni d'identité biométrique ni de suivi.</p>
+      <p>Le Worker conserve les données agrégées d'utilisation quotidienne pendant 180 jours au maximum. Un enregistrement de clé App Attest est supprimé après 180 jours sans requête protégée réussie. Ces enregistrements ne contiennent pas le texte des invites ou des réponses.</p>
 
       <h3>Appareil photo et Photos</h3>
       <p>La reconnaissance de texte OCR s'effectue localement sur l'appareil et n'envoie aucune image aux fournisseurs d'IA.</p>
@@ -526,7 +540,7 @@
     <div id="section-de" class="lang-section" style="display: none;">
       <h1>Chika Datenschutzerklärung</h1>
       <div class="meta-info">
-        <p><strong>Inkrafttreten:</strong> 6. September 2026</p>
+        <p><strong>Inkrafttreten:</strong> 9. September 2026</p>
         <p><strong>Herausgeber:</strong> Meng Yang</p>
         <p><strong>Kontakt:</strong> <a href="mailto:kakutixyz@gmail.com">kakutixyz@gmail.com</a></p>
       </div>
@@ -540,6 +554,7 @@
       <h3>KI-Funktionen und Datenübertragung</h3>
       <p>KI-Funktionen sind optional. Nach Einwilligung werden Text und relevanter Gesprächskontext an Chikas Cloudflare Worker (<code>https://chika-api.kakutiapps.workers.dev/api/v1</code>) gesendet. Der Worker prüft die Anfrage, setzt Nutzungslimits durch und leitet zulässige Inhalte an OpenRouter und den nachgelagerten Modellanbieter weiter.</p>
       <p>Cloudflare verarbeitet Anfrage und Antwort. Der Worker leitet mit einem serverseitigen Geheimnis aus der Quell-IP eine täglich wechselnde HMAC-Kennung ab und speichert sie bis zu etwa 25 Stunden in Durable-Object-Datensätzen zur Ratenbegrenzung sowie bis zu fünf Minuten in App-Attest-Challenge-Datensätzen; die ursprüngliche IP-Adresse wird nicht gespeichert. KI-Chats speichern Prompt- oder Antwortinhalte nicht absichtlich im persistenten Speicher; optionale Problemberichte (kein Konto erforderlich) werden zur Fehlerbehebung bis zu 30 Tage im Durable-Object-Speicher aufbewahrt und per E-Mail weitergeleitet. Geschützte Release-Anfragen verwenden Apple App Attest; der Worker speichert eine installationsbezogene Schlüssel-ID, den öffentlichen Schlüssel, den Apple-Beleg, den Assertion-Zähler sowie temporäre Challenge-/Kontingentdaten, um die App zu prüfen und Wiederholungen oder Missbrauch zu verhindern. Dies ist weder biometrische Identität noch Tracking.</p>
+      <p>Der Worker speichert aggregierte tägliche Nutzungsdaten bis zu 180 Tage. Ein App-Attest-Schlüsseldatensatz wird nach 180 Tagen ohne erfolgreiche geschützte Anfrage gelöscht. Diese Datensätze enthalten keine Prompt- oder Antworttexte.</p>
 
       <h3>Kamera und Fotos</h3>
       <p>Die OCR-Texterkennung wird lokal auf dem Gerät ausgeführt; Bilder werden nicht an KI-Anbieter übermittelt.</p>
